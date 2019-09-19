@@ -29,6 +29,8 @@ let enemyVX = 5;
 // How many dodges the player has made
 let dodges = 0;
 
+
+let textOpacity
 // setup()
 //
 // Make the canvas, position the avatar and anemy
@@ -55,6 +57,9 @@ function setup() {
 function draw() {
   // A pink background
   background(255,220,220);
+  textSize(32);
+  text("YOU LOSE", width / 2 -100 , height / 2);
+  fill(255,0,0);
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
@@ -116,6 +121,7 @@ function draw() {
     // If they went off the screen they lose in the same way as above.
     console.log("YOU LOSE!");
     enemyX = 0;
+
     enemyY = random(0,height);
     avatarX = width/2;
     avatarY = height/2;
