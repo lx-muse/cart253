@@ -23,6 +23,9 @@ let lineY;
 // lineStroke variable wasn't working as expected
 
 
+// create a variable for mouseOver()
+// let centerCircle;
+// let d;
 
 // preload()
 //
@@ -57,10 +60,14 @@ function setup() {
   noStroke();
 
   //Start the line off the screen at center left
-  lineX =(0,320);
-  lineY = (640,320);
+  lineX = (0,320);
+  lineY = (0,320);
+  lineStroke = stroke(0,255,0,10);
 
-
+  // MouseOver challenge
+  // centerCircle = ellipse(320,320,d,d);
+  // centerCircle.mouseOver(changeGray);
+  // d = 10;
 }
 
 
@@ -93,17 +100,23 @@ function draw() {
   // Move line to the left
   lineX += 1;
   // lineY = 320;
-  // Make the line transparent green  fill(0,255,0,10);
+  // Make the line transparent green, Display the line??
+  line(lineX,lineY);
+  // stroke(0,255,0,10);
+  strokeWeight(4);
 
-
-                    // Display the line?????
-                    line(lineX,lineY);
-                    stroke(0,255,0,10);
-                    strokeWeight(4);
-
-  // object following the mouseX
+  // object following the mouseX,mouseY coordinates
   fill(128,0,128,10)
   ellipse(mouseX,mouseY,50,50);
 
 
 }
+// mouseOver challenge
+
+// function changeGray() {
+//   d = d + 10;
+//   if (d > 100) {
+//     d = 0;
+//     }
+//
+// }
