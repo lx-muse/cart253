@@ -1,5 +1,5 @@
 // Exercise 1 - Movement
-// Pippin Barr
+// Marie-Christine Lariviere
 //
 // Starter code for exercise 1.
 // Draws a moving square and circle that intersect
@@ -15,6 +15,12 @@ let squareX;
 let squareY;
 let squareSize = 100;
 
+// The current position and size of the line//
+
+let lineX;
+let lineY;
+// let lineStroke = (0,255,0,10);
+// lineStroke variable wasn't working as expected
 
 // preload()
 //
@@ -47,7 +53,14 @@ function setup() {
   rectMode(CENTER);
   // We won't have a stroke in this
   noStroke();
+
+  //Start the line off the screen at center left
+  lineX =(0,320);
+  lineY = (0,320);
+
+
 }
+
 
 
 // draw()
@@ -73,4 +86,17 @@ function draw() {
   fill(0,0,255,10);
   // Display the square
   rect(squareX,squareY,squareSize,squareSize);
+
+
+  // Move line to the left
+  lineX += 1;
+  lineY = 320;
+  // Make the line transparent green  fill(0,255,0,10);
+
+
+                    // Display the line?????
+                    line(lineX,lineY);
+                    stroke(0,255,0,10);
+                    strokeWeight(4);
+
 }
