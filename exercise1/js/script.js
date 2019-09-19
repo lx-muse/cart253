@@ -22,6 +22,8 @@ let lineY;
 // let lineStroke = (0,255,0,10);
 // lineStroke variable wasn't working as expected
 
+
+
 // preload()
 //
 // Nothing here
@@ -56,7 +58,7 @@ function setup() {
 
   //Start the line off the screen at center left
   lineX =(0,320);
-  lineY = (0,320);
+  lineY = (640,320);
 
 
 }
@@ -90,7 +92,7 @@ function draw() {
 
   // Move line to the left
   lineX += 1;
-  lineY = 320;
+  // lineY = 320;
   // Make the line transparent green  fill(0,255,0,10);
 
 
@@ -98,5 +100,10 @@ function draw() {
                     line(lineX,lineY);
                     stroke(0,255,0,10);
                     strokeWeight(4);
+
+  // object following the mouseX
+  fill(128,0,128,10)
+  ellipse(mouseX,mouseY,50,50);
+
 
 }
