@@ -26,11 +26,14 @@ let enemySize = 50;
 let enemySpeed = 5;
 let enemyVX = 5;
 
-// How many dodges the player has made
+// Display how many dodges the player has made
 let dodges = 0;
 
 
-let textOpacity
+// trying the display as a variable
+// let textOpacity
+// let text = "DODGES!"
+
 // setup()
 //
 // Make the canvas, position the avatar and anemy
@@ -48,6 +51,10 @@ function setup() {
 
   // No stroke so it looks cleaner
   noStroke();
+
+  textAlign(RIGHT, TOP);
+  textSize(32);
+  text();
 }
 
 // draw()
@@ -55,11 +62,9 @@ function setup() {
 // Handle moving the avatar and enemy and checking for dodges and
 // game over situations.
 function draw() {
-  // A pink background
-  background(255,220,220);
-  textSize(32);
-  text("YOU LOSE", width / 2 -100 , height / 2);
-  fill(255,0,0);
+  // A dark blue background
+  background(25,0,51);
+  fill(0,0,0);
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
@@ -146,15 +151,15 @@ function draw() {
 
   // Display the number of successful dodges in the console
   console.log(dodges);
-  console.log(enemySpeed);
+  // console.log(enemySpeed);
 
-  // The player is black
-  fill(0);
+  // The player is gold
+  fill(255,153,51);
   // Draw the player as a circle
   ellipse(avatarX,avatarY,avatarSize,avatarSize);
 
   // The enemy is red
-  fill(255,0,0);
+  fill(204,0,0);
   // Draw the enemy as a circle
   ellipse(enemyX,enemyY,enemySize,enemySize);
 
