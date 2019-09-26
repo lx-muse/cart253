@@ -30,31 +30,28 @@ let enemyVX = 5;
 let dodges = 0;
 
 
-// trying the display as a variable
+// trying displaying the text as a variable
 // let textOpacity
-// let text = "DODGES!"
+let textDodges = "DODGES!"
 
 // setup()
 //
 // Make the canvas, position the avatar and anemy
 function setup() {
   // Create our playing area
-  createCanvas(500,500);
+  createCanvas(500, 500);
 
   // Put the avatar in the centre
-  avatarX = width/2;
-  avatarY = height/2;
+  avatarX = width / 2;
+  avatarY = height / 2;
 
   // Put the enemy to the left at a random y coordinate within the canvas
   enemyX = 0;
-  enemyY = random(0,height);
+  enemyY = random(0, height);
 
   // No stroke so it looks cleaner
   noStroke();
 
-  textAlign(RIGHT, TOP);
-  textSize(32);
-  text();
 }
 
 // draw()
@@ -63,8 +60,15 @@ function setup() {
 // game over situations.
 function draw() {
   // A dark blue background
-  background(25,0,51);
-  fill(0,0,0);
+  background(25, 0, 51);
+  fill(255, 0, 0);
+
+  textAlign(CENTER);
+  textSize(22);
+  text(textDodges + "\n" + dodges, width - 80, height - 450);
+  // I learned something with strings and spacing, yay :)
+
+
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
@@ -76,8 +80,7 @@ function draw() {
   // Left and right
   if (keyIsDown(LEFT_ARROW)) {
     avatarVX = -avatarSpeed;
-  }
-  else if (keyIsDown(RIGHT_ARROW)) {
+  } else if (keyIsDown(RIGHT_ARROW)) {
     avatarVX = avatarSpeed;
   }
 
@@ -85,8 +88,7 @@ function draw() {
   // horizontally at the same time)
   if (keyIsDown(UP_ARROW)) {
     avatarVY = -avatarSpeed;
-  }
-  else if (keyIsDown(DOWN_ARROW)) {
+  } else if (keyIsDown(DOWN_ARROW)) {
     avatarVY = avatarSpeed;
   }
 
@@ -99,21 +101,27 @@ function draw() {
   // Update the enemy's position based on its velocity
   enemyX = enemyX + enemyVX;
 
-
+  //pause command
+  // if (keyTyped(p)) {
+  //   noLoop();
+  // }
+  // else (keyReleased(p)) {
+  //   loop();
+  // }
 
 
   // Check if the enemy and avatar overlap - if they do the player loses
   // We do this by checking if the distance between the centre of the enemy
   // and the centre of the avatar is less that their combined radii
-  if (dist(enemyX,enemyY,avatarX,avatarY) < enemySize/2 + avatarSize/2) {
+  if (dist(enemyX, enemyY, avatarX, avatarY) < enemySize / 2 + avatarSize / 2) {
     // Tell the player they lost
     console.log("YOU LOSE!");
     // Reset the enemy's position
     enemyX = 0;
-    enemyY = random(0,height);
+    enemyY = random(0, height);
     // Reset the avatar's position
-    avatarX = width/2;
-    avatarY = height/2;
+    avatarX = width / 2;
+    avatarY = height / 2;
     // Reset the dodge counter
     dodges = 0;
     enemySpeed = 5;
@@ -127,9 +135,9 @@ function draw() {
     console.log("YOU LOSE!");
     enemyX = 0;
 
-    enemyY = random(0,height);
-    avatarX = width/2;
-    avatarY = height/2;
+    enemyY = random(0, height);
+    avatarX = width / 2;
+    avatarY = height / 2;
     dodges = 0;
     enemySpeed = 5;
     enemySize = 50;
@@ -143,24 +151,25 @@ function draw() {
     console.log(dodges + " DODGES!");
     // Reset the enemy's position to the left at a random height
     enemyX = 0;
-    enemyY = random(0,height);
+    enemyY = random(0, height);
     // enemy accelerate to add difficulty
-    enemySpeed = enemySpeed + dodges / 2 ;
+    enemySpeed = enemySpeed + dodges / 2;
+    //enemy grows to add difficulty
     enemySize = enemySize + dodges * 2;
-}
+  }
 
   // Display the number of successful dodges in the console
   console.log(dodges);
   // console.log(enemySpeed);
 
   // The player is gold
-  fill(255,153,51);
+  fill(255, 153, 51);
   // Draw the player as a circle
-  ellipse(avatarX,avatarY,avatarSize,avatarSize);
+  ellipse(avatarX, avatarY, avatarSize, avatarSize);
 
   // The enemy is red
-  fill(204,0,0);
+  fill(204, 0, 0);
   // Draw the enemy as a circle
-  ellipse(enemyX,enemyY,enemySize,enemySize);
+  ellipse(enemyX, enemyY, enemySize, enemySize);
 
 }
