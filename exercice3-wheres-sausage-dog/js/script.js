@@ -1,6 +1,6 @@
 /******************************************************************************
 Where's Sausage Dog?
-by Pippin Barr
+Marie-Christine Lariviere
 
 An algorithmic version of a Where's Wally searching game where you
 need to click on the sausage dog you're searching for in amongst all
