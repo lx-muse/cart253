@@ -1,7 +1,7 @@
 /******************************************************
 
 Game - The Artful Dodger
-Pippin Barr
+Marie-Christine Lariviere
 
 A simple dodging game with keyboard controls
 
