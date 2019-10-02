@@ -10,7 +10,7 @@ Animal images from:
 https://creativenerds.co.uk/freebies/80-free-wildlife-icons-the-best-ever-animal-icon-set/
 ******************************************************************************/
 
-// Position and image of the sausage dog we're searching for
+// Position and image of the flamingo we're searching for
 var targetX;
 var targetY;
 var targetImage;
@@ -34,12 +34,17 @@ var numDecoys = 100;
 // Keep track of whether they've won
 var gameOver = false;
 
+// UI
+let myFont
+let clueImage
+
+
 // preload()
 //
-// Loads the target and decoy images before the program starts
+// Loads the target, decoy and clue images before the program starts
 function preload() {
   targetImage = loadImage("assets/images/animals-target.png");
-
+  clueImage = loadImage("assets/images/animals-target-clue.png")
   decoyImage1 = loadImage("assets/images/animals-01.png");
   decoyImage2 = loadImage("assets/images/animals-02.png");
   decoyImage3 = loadImage("assets/images/animals-03.png");
@@ -50,15 +55,19 @@ function preload() {
   decoyImage8 = loadImage("assets/images/animals-08.png");
   decoyImage9 = loadImage("assets/images/animals-09.png");
   decoyImage10 = loadImage("assets/images/animals-10.png");
+  myFont = loadFont("assets/montserratMedium.otf")
+  // myFont = loadFont("assets/montserratMedium.otf",[callback],[onError])
 }
+
 
 // setup()
 //
 // Creates the canvas, sets basic modes, draws correct number
-// of decoys in random positions, then the target
+// of decoys in random positions, then the clue and the target
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  background("#ffff00");
+  background("#00334d");
+  // #004d4d dark green background
   imageMode(CENTER);
 
   // Use a for loop to draw as many decoys as we need
@@ -102,7 +111,7 @@ function setup() {
       image(decoyImage10,x,y);
     }
   }
-
+  image(clueImage,windowWidth - (windowWidth / 6 ), 1 / windowHeight + 100, width / 3, height / 3)
   // Once we've displayed all decoys, we choose a location for the target
   targetX = random(0,width);
   targetY = random(0,height);
@@ -113,13 +122,13 @@ function setup() {
 function draw() {
   if (gameOver) {
     // Prepare our typography
-    textFont("Helvetica");
-    textSize(128);
+    textFont("myFont");
+    textSize(100);
     textAlign(CENTER,CENTER);
     noStroke();
-    fill(random(255));
+    fill("#fb835d");
     // Tell them they won!
-    text("YOU WINNED!",width/2,height/2);
+    text("FOUND ME!",width/2,height/2);
 
     noFill();
     stroke(random(255));
@@ -140,3 +149,7 @@ function mousePressed() {
     }
   }
 }
+
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
