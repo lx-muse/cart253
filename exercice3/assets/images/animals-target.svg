@@ -9,18 +9,21 @@
 	.st3{font-size:12px;}
 	.st4{fill:#FB835D;}
 	.st5{font-family:'Montserrat-Bold';}
-	.st6{font-size:41.8075px;}
-	.st7{fill:#F6D76F;}
+	.st6{font-size:60px;}
 </style>
-<circle class="st0" cx="259.9" cy="425.9" r="155.7"/>
-<circle class="st1" cx="259.9" cy="428.9" r="124.5"/>
-<circle class="st0" cx="259.9" cy="428.9" r="121.8"/>
+<rect x="122" y="296.2" class="st0" width="297" height="259.8"/>
+<circle class="st1" cx="270.9" cy="428.9" r="124.5"/>
+<circle class="st0" cx="270.9" cy="428.9" r="121.8"/>
 <image style="overflow:visible;enable-background:new    ;" width="523" height="530" xlink:href="7AB8A92E80064E19.png"  transform="matrix(0.3039 0 0 0.3039 282.921 429.5286)">
 </image>
 <text class="st2 st3"> </text>
 <text class="st2 st3"> </text>
-<image style="overflow:visible;enable-background:new    ;" width="520" height="520" xlink:href="../../../../../../../../Volumes/MCBLUE/Wildlife-icons/animals-target.png"  transform="matrix(0.442 0 0 0.442 123.8635 320.2563)">
+<image style="overflow:visible;enable-background:new    ;" width="128" height="128" xlink:href="animals-target.png"  transform="matrix(1.7956 0 0 1.7956 144.8635 324.2563)">
 </image>
-<text transform="matrix(1.0047 0 0 1 157.3564 339.9365)" class="st4 st5 st6">FIND</text>
-<text transform="matrix(1.0047 0 0 1 178.2563 390.0991)" class="st7 st5 st6">ME</text>
+<text transform="matrix(1.0047 0 0 1 128.2001 345.8379)" class="st4 st5 st6">FIND</text>
+<text transform="matrix(1.0047 0 0 1 149.1 396)" class="st4 st5 st6">ME</text>
+<image style="overflow:visible;enable-background:new    ;" width="183" height="76" xlink:href="7AB8A92E80064E1F.png"  transform="matrix(0.6575 0 0 0.6016 245.8398 155.0279)">
+</image>
+<image style="overflow:visible;enable-background:new    ;" width="121" height="83" xlink:href="7AB8A92E80064E18.png"  transform="matrix(0.5363 0 0 0.5363 261.1843 201.8783)">
+</image>
 </svg>
