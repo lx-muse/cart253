@@ -111,7 +111,7 @@ function setup() {
       image(decoyImage10,x,y);
     }
   }
-  image(clueImage,windowWidth - (windowWidth / 6 ), 1 / windowHeight + 100, width / 3, height / 3)
+  image(clueImage,windowWidth - (windowWidth / 6 ), 1 / windowHeight + 100, width / 4, height / 4)
   // Once we've displayed all decoys, we choose a location for the target
   targetX = random(0,width);
   targetY = random(0,height);
@@ -128,7 +128,7 @@ function draw() {
     noStroke();
     fill("#fb835d");
     // Tell them they won!
-    text("FOUND ME!",width/2,height/2);
+    text("AWESOME!",width/2,height/2);
 
     noFill();
     stroke(random(255));
