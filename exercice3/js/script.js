@@ -8,6 +8,8 @@ the visual noise of other animals.
 
 Animal images from:
 https://creativenerds.co.uk/freebies/80-free-wildlife-icons-the-best-ever-animal-icon-set/
+Sound preview from:
+https://www.proudmusiclibrary.com/en/tag/playtime
 ******************************************************************************/
 
 // Position and image of the flamingo we're searching for
@@ -37,7 +39,8 @@ var gameOver = false;
 // UI
 let myFont
 let clueImage
-
+let winningStar
+let song
 
 // preload()
 //
@@ -55,9 +58,12 @@ function preload() {
   decoyImage8 = loadImage("assets/images/animals-08.png");
   decoyImage9 = loadImage("assets/images/animals-09.png");
   decoyImage10 = loadImage("assets/images/animals-10.png");
-  myFont = loadFont("assets/montserratMedium.otf")
-  // myFont = loadFont("assets/montserratMedium.otf",[callback],[onError])
+  //personnalisation
+  myFont = loadFont("assets/montserratMedium.otf");
+  winningStar = loadImage("assets/images/star.png");
+  song = loadSound("assets/bjorn_lynne_-_winterland_fun.mp3");
 }
+
 
 
 // setup()
@@ -111,7 +117,7 @@ function setup() {
       image(decoyImage10,x,y);
     }
   }
-  image(clueImage,windowWidth - (windowWidth / 6 ), 1 / windowHeight + 100, width / 4, height / 4)
+  image(clueImage,windowWidth - (windowWidth / 9 ), 1 / windowHeight + 80, width / 4, height / 4)
   // Once we've displayed all decoys, we choose a location for the target
   targetX = random(0,width);
   targetY = random(0,height);
@@ -126,14 +132,22 @@ function draw() {
     textSize(100);
     textAlign(CENTER,CENTER);
     noStroke();
-    fill("#fb835d");
+    fill("#b30047");
     // Tell them they won!
     text("AWESOME!",width/2,height/2);
 
     noFill();
-    stroke(random(255));
+    stroke("#b30047");
     strokeWeight(10);
     ellipse(targetX,targetY,targetImage.width,targetImage.height);
+
+    //Make winning more exciting by randomly repeating the target-image
+      var x = random(0,width);
+      var y = random(0,height);
+      imageMode(CENTER);
+      image(winningStar,x,y, width/6, height/6);
+      image(targetImage,x,y);
+
   }
 }
 
@@ -146,6 +160,7 @@ function mousePressed() {
     // Check if the mouse is also in the y range of the target
     if (mouseY > targetY - targetImage.height/2 && mouseY < targetY + targetImage.height/2) {
       gameOver = true;
+      song.play;
     }
   }
 }
