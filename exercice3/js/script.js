@@ -41,6 +41,7 @@ let myFont
 let clueImage
 let winningStar
 let song
+let speed = 2
 
 // preload()
 //
@@ -75,6 +76,8 @@ function setup() {
   background("#00334d");
   // #004d4d dark green background
   imageMode(CENTER);
+  vx = speed
+  vy = -speed
 
   // Use a for loop to draw as many decoys as we need
   for (var i = 0; i < numDecoys; i++) {
@@ -151,8 +154,8 @@ function draw() {
       var x = random(0,width);
       var y = random(0,height);
       imageMode(CENTER);
-      image(winningStar,x,y, width/6, height/6);
-      image(targetImage,x,y);
+      image(winningStar,x + vx,y + vy, width/6, height/6);
+      image(targetImage,x + vx,y + vy);
 
   }
 }
