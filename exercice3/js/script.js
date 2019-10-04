@@ -59,9 +59,9 @@ function preload() {
   decoyImage9 = loadImage("assets/images/animals-09.png");
   decoyImage10 = loadImage("assets/images/animals-10.png");
   //personnalisation
-  myFont = loadFont("assets/montserratMedium.otf");
+  myFont = loadFont("assets/fonts/montserratMedium.otf");
   winningStar = loadImage("assets/images/star.png");
-  song = loadSound("assets/bjorn_lynne_-_winterland_fun.mp3");
+  winningSong = loadSound("assets/sounds/bjorn_lynne_-_winterland_fun.mp3");
 }
 
 
@@ -83,46 +83,50 @@ function setup() {
     var y = random(0,height);
     // Generate a random number we can use for probability
     var r = random();
+    //Generate width and height for difficulty levels, base 128 X 128
+    var w = 150
+    var h = 150
     // Use the random number to display one of the ten decoy
     // images, each with a 10% chance of being shown
     // We'll talk more about this nice quality of random soon enough
     if (r < 0.1) {
-      image(decoyImage1,x,y);
+      image(decoyImage1,x,y,w,h);
     }
     else if (r < 0.2) {
-      image(decoyImage2,x,y);
+      image(decoyImage2,x,y,w,h);
     }
     else if (r < 0.3) {
-      image(decoyImage3,x,y);
+      image(decoyImage3,x,y,w,h);
     }
     else if (r < 0.4) {
-      image(decoyImage4,x,y);
+      image(decoyImage4,x,y,w,h);
     }
     else if (r < 0.5) {
-      image(decoyImage5,x,y);
+      image(decoyImage5,x,y,w,h);
     }
     else if (r < 0.6) {
-      image(decoyImage6,x,y);
+      image(decoyImage6,x,y,w,h);
     }
     else if (r < 0.7) {
-      image(decoyImage7,x,y);
+      image(decoyImage7,x,y,w,h);
     }
     else if (r < 0.8) {
-      image(decoyImage8,x,y);
+      image(decoyImage8,x,y,w,h);
     }
     else if (r < 0.9) {
-      image(decoyImage9,x,y);
+      image(decoyImage9,x,y,w,h);
     }
     else if (r < 1.0) {
-      image(decoyImage10,x,y);
+      image(decoyImage10,x,y,w,h);
     }
   }
+
   image(clueImage,windowWidth - (windowWidth / 9 ), 1 / windowHeight + 80, width / 4, height / 4)
   // Once we've displayed all decoys, we choose a location for the target
   targetX = random(0,width);
   targetY = random(0,height);
   // And draw it (this means it will always be on top)
-  image(targetImage,targetX,targetY);
+  image(targetImage,targetX,targetY,w,h);
 }
 
 function draw() {
@@ -135,6 +139,8 @@ function draw() {
     fill("#b30047");
     // Tell them they won!
     text("AWESOME!",width/2,height/2);
+    textSize(30);
+    text("Refresh page to play again!", width / 2, height / 2 + 60)
 
     noFill();
     stroke("#b30047");
@@ -160,11 +166,8 @@ function mousePressed() {
     // Check if the mouse is also in the y range of the target
     if (mouseY > targetY - targetImage.height/2 && mouseY < targetY + targetImage.height/2) {
       gameOver = true;
-      song.play;
+      winningSong.setVolume(1,5000,0);
+      winningSong.play();
     }
   }
 }
-
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
