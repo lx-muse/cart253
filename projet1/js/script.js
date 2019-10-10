@@ -3,7 +3,7 @@
 /******************************************************
 
 Game - Chaser
-Pippin Barr
+Marie-Christine Lariviere
 
 A "simple" game of cat and mouse. The player is a circle and can move with keys,
 if they overlap the (randomly moving) prey they "eat it" by sucking out its life
@@ -49,10 +49,18 @@ let eatHealth = 10;
 // Number of prey eaten during the game (the "score")
 let preyEaten = 0;
 
+//UX/UI
+let bgImage;
+let bgMusic;
+let preyEatenMusic;
+
 // setup()
 //
 // Sets up the basic elements of the game
 function setup() {
+  bgImage = loadImage("assets/images/water.png");
+  bgMusic = loadSound("assets/sounds/bensound-relaxing.mp3");
+  preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
   createCanvas(500, 500);
 
   noStroke();
@@ -90,7 +98,8 @@ function setupPlayer() {
 // displays the two agents.
 // When the game is over, shows the game over screen.
 function draw() {
-  background(100, 100, 200);
+  background(bgImage);
+  // bgMusic.play();
 
   if (!gameOver) {
     handleInput();
