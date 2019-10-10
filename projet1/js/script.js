@@ -13,6 +13,11 @@ eating to stay alive.
 Includes: Physics-based movement, keyboard controls, health/stamina,
 random movement, screen wrap.
 
+Background music from Bensound.com
+https://www.bensound.com/royalty-free-music/track/relaxing
+Notification (preyEaten)
+https://notificationsounds.com/notification-sounds/intuition-561
+
 ******************************************************/
 
 // Track whether the game is over
@@ -54,13 +59,17 @@ let bgImage;
 let bgMusic;
 let preyEatenMusic;
 
+function preload() {
+  // bgMusic = loadSound("assets/sounds/relaxing.mp3");
+  // preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
+}
+
 // setup()
 //
 // Sets up the basic elements of the game
 function setup() {
   bgImage = loadImage("assets/images/water.png");
-  bgMusic = loadSound("assets/sounds/bensound-relaxing.mp3");
-  preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
+
   createCanvas(500, 500);
 
   noStroke();
@@ -216,6 +225,7 @@ function checkEating() {
       preyHealth = preyMaxHealth;
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
+      preyEatenMusic.play();
     }
   }
 }
