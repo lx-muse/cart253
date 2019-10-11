@@ -28,7 +28,7 @@ let winGame = false;
 // Player position, size, velocity
 let playerX;
 let playerY;
-let playerRadius = 20;
+let playerRadius = 440;
 let playerVX = 0;
 let playerVY = 0;
 let playerMaxSpeed = 2;
@@ -132,19 +132,16 @@ function draw() {
     drawPrey();
     drawPlayer();
 
-
-// Keeping track of the player size
-    if (playerRadius >= 500) {
-      winGame = true;
-    }
   }
   else {
     showGameOver();
   }
-  // trying a new function
-  // if (winGame = true) {
-  //   showGameWon();
-  // }
+  // Keeping track of the player size
+  if (playerRadius >= 500) {
+    winGame = true;
+    console.log("wingame");
+    showGameWon();
+  }
 }
 
 // handleInput()
@@ -299,7 +296,6 @@ function movePrey() {
 //
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
-  console.log(drawPrey);
   fill(preyFill, preyHealth);
   ellipse(preyX, preyY, preyRadius * 2);
 
@@ -361,9 +357,9 @@ function showGameOver() {
 //   fill(0);
 //
 //   // Set up the text to display
-//   let gameOverText = "YOU SURVIVED\n"; // \n means "new line"
-//   gameOverText = gameOverText + "preyEaten + " rounds\n";
+//   let gameWonText = "YOU SURVIVED\n"; // \n means "new line"
+//   gameWonText = gameOverText + "preyEaten + " rounds\n";
 //   // Display it in the centre of the screen
-//   text(gameOverText, width / 2, height / 2);
+//   text(gameWonText, width / 2, height / 2);
 //
 // }
