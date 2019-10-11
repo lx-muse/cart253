@@ -23,10 +23,12 @@ https://notificationsounds.com/notification-sounds/intuition-561
 // Track whether the game is over
 let gameOver = false;
 
+// The goal, could reach to level 2
+let winGame = false;
 // Player position, size, velocity
 let playerX;
 let playerY;
-let playerRadius = 25;
+let playerRadius = 20;
 let playerVX = 0;
 let playerVY = 0;
 let playerMaxSpeed = 2;
@@ -39,13 +41,15 @@ let playerFill = 50;
 // Prey position, size, velocity
 let preyX;
 let preyY;
-let preyRadius = 25;
+let preyRadius = 20;
 let preyVX;
 let preyVY;
 let preyMaxSpeed = 2;
 // Prey health
 let preyHealth;
 let preyMaxHealth = 100;
+// Something new
+let numBubble = 50;
 // Prey fill color
 let preyFill = 200;
 
@@ -89,8 +93,9 @@ function setup() {
 //
 // Initialises prey's position, velocity, and health
 function setupPrey() {
-  preyX = width / 5;
-  preyY = height / 2;
+
+  preyX = random(0,width);
+  preyY = random(0,height);
   preyVX = -preyMaxSpeed;
   preyVY = preyMaxSpeed;
   preyHealth = preyMaxHealth;
@@ -126,10 +131,20 @@ function draw() {
 
     drawPrey();
     drawPlayer();
+
+
+// Keeping track of the player size
+    if (playerRadius >= 500) {
+      winGame = true;
+    }
   }
   else {
     showGameOver();
   }
+  // trying a new function
+  // if (winGame = true) {
+  //   showGameWon();
+  // }
 }
 
 // handleInput()
@@ -238,6 +253,8 @@ function checkEating() {
       preyHealth = preyMaxHealth;
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
+      // because everything gets easier when practice
+      playerRadius++;
 
     }
   }
@@ -282,8 +299,32 @@ function movePrey() {
 //
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
+  console.log(drawPrey);
   fill(preyFill, preyHealth);
   ellipse(preyX, preyY, preyRadius * 2);
+
+  // good idea, wrong logic. Tried many preys. I will come back to make this work.
+  // for (var i = 0; i < numBubble; i++) {
+  //   // Choose a random location for air bubbles
+  //   preyX = random(0,width);
+  //   preyY = random(0,height);
+  //   // Generate a random number we can use for probability
+  //   var r = random();
+  //
+  //   // Use the random number to display 4 kinds of air reserves, each with
+  //   // a 25% chance of being shown
+  //   if (r < 0.25) {
+  //     preyRadius = preyRadius / 2;
+  //   }
+  //   else if (r < 0.25) {
+  //     preyRadius;
+  //   }
+  //   else if (r < 0.25) {
+  //     preyRadius = preyRadius * 2;
+  //   }
+  //   else if (r < 0.25) {
+  //     preyRadius = preyRadius * 3;
+  //   }
 }
 
 // drawPlayer()
@@ -310,3 +351,19 @@ function showGameOver() {
   // Display it in the centre of the screen
   text(gameOverText, width / 2, height / 2);
 }
+
+
+// Display the game won, or level two. It's a working on your base for the next design.
+// function showGameWon() {
+//   textSize(32);
+//   textStyle(ITALIC);
+//   textAlign(CENTER, CENTER);
+//   fill(0);
+//
+//   // Set up the text to display
+//   let gameOverText = "YOU SURVIVED\n"; // \n means "new line"
+//   gameOverText = gameOverText + "preyEaten + " rounds\n";
+//   // Display it in the centre of the screen
+//   text(gameOverText, width / 2, height / 2);
+//
+// }
