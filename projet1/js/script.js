@@ -5,10 +5,10 @@
 Game - Chaser
 Marie-Christine Lariviere
 
-A "simple" game of cat and mouse. The player is a circle and can move with keys,
-if they overlap the (randomly moving) prey they "eat it" by sucking out its life
-and adding it to their own. The player "dies" slowly over time so they have to keep
-eating to stay alive.
+A "simple" game of cat and mouse played under water. The player is a circle and can move
+with keys, if they overlap the (randomly moving) air bubbles, survive by merging and
+adding it to their own reserve. The player "dies" slowly over time so they have to keep
+swiming to stay alive.
 
 Includes: Physics-based movement, keyboard controls, health/stamina,
 random movement, screen wrap.
@@ -157,6 +157,12 @@ function handleInput() {
   else {
     playerVY = 0;
   }
+
+  if (keyIsDown(SHIFT)) {
+    playerMaxSpeed = 4;
+  } else {
+    playerMaxSpeed;
+  }
 }
 
 // movePlayer()
@@ -294,11 +300,12 @@ function drawPlayer() {
 function showGameOver() {
   // Set up the font
   textSize(32);
+  textStyle(ITALIC);
   textAlign(CENTER, CENTER);
   fill(0);
   // Set up the text to display
   let gameOverText = "GAME OVER\n"; // \n means "new line"
-  gameOverText = gameOverText + "You ate " + preyEaten + " prey\n";
+  gameOverText = gameOverText + "You survived " + preyEaten + " rounds\n";
   gameOverText = gameOverText + "before you died."
   // Display it in the centre of the screen
   text(gameOverText, width / 2, height / 2);
