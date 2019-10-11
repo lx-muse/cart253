@@ -42,7 +42,7 @@ let preyY;
 let preyRadius = 25;
 let preyVX;
 let preyVY;
-let preyMaxSpeed = 4;
+let preyMaxSpeed = 2;
 // Prey health
 let preyHealth;
 let preyMaxHealth = 100;
@@ -53,6 +53,10 @@ let preyFill = 200;
 let eatHealth = 10;
 // Number of prey eaten during the game (the "score")
 let preyEaten = 0;
+
+// Time variables for Perlin Noise; tutorial from Dan Schiffman
+let preyTX = 1;
+let preyTY = 1;
 
 //UX/UI
 let bgImage;
@@ -70,6 +74,7 @@ function preload() {
 // Sets up the basic elements of the game
 function setup() {
   bgImage = loadImage("assets/images/water.png");
+  bgMusic.loop = true;
   bgMusic.play();
   createCanvas(500, 500);
 
@@ -234,20 +239,18 @@ function checkEating() {
 
 // movePrey()
 //
-// Moves the prey based on random velocity changes
+// Moves the prey based on random/perlin noise velocity changes
 function movePrey() {
-  // Change the prey's velocity at random intervals
-  // random() will be < 0.05 5% of the time, so the prey
-  // will change direction on 5% of frames
-  if (random() < 0.05) {
-    // Set velocity based on random values to get a new direction
+    // Set velocity based on noise values to get a more natural new direction
     // and speed of movement
     //
     // Use map() to convert from the 0-1 range of the random() function
     // to the appropriate range of velocities for the prey
-    preyVX = map(random(), 0, 1, -preyMaxSpeed, preyMaxSpeed);
-    preyVY = map(random(), 0, 1, -preyMaxSpeed, preyMaxSpeed);
-  }
+    preyVX = map(noise(preyTX), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+    preyVY = map(noise(preyTY), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+    // update time variable
+    preyTX += 0.01;
+    preyTY += 0.01;
 
   // Update prey position based on velocity
   preyX = preyX + preyVX;
