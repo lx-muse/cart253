@@ -28,7 +28,7 @@ let winGame = false;
 // Player position, size, velocity
 let playerX;
 let playerY;
-let playerRadius = 440;
+let playerRadius = 20;
 let playerVX = 0;
 let playerVY = 0;
 let playerMaxSpeed = 2;
