@@ -358,7 +358,7 @@ function showGameOver() {
 //
 //   // Set up the text to display
 //   let gameWonText = "YOU SURVIVED\n"; // \n means "new line"
-//   gameWonText = gameOverText + "preyEaten + " rounds\n";
+//   gameWonText = gameWonText + "preyEaten + " rounds\n";
 //   // Display it in the centre of the screen
 //   text(gameWonText, width / 2, height / 2);
 //
