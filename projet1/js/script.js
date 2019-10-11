@@ -60,8 +60,9 @@ let bgMusic;
 let preyEatenMusic;
 
 function preload() {
-  // bgMusic = loadSound("assets/sounds/relaxing.mp3");
-  // preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
+  bgMusic = loadSound("assets/sounds/relaxing.mp3");
+  preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
+  preyEatenMusic = load
 }
 
 // setup()
@@ -69,7 +70,7 @@ function preload() {
 // Sets up the basic elements of the game
 function setup() {
   bgImage = loadImage("assets/images/water.png");
-
+  bgMusic.play();
   createCanvas(500, 500);
 
   noStroke();
@@ -108,7 +109,6 @@ function setupPlayer() {
 // When the game is over, shows the game over screen.
 function draw() {
   background(bgImage);
-  // bgMusic.play();
 
   if (!gameOver) {
     handleInput();
@@ -218,6 +218,8 @@ function checkEating() {
 
     // Check if the prey died (health 0)
     if (preyHealth === 0) {
+      // give audio feedback to the player
+      preyEatenMusic.play();
       // Move the "new" prey to a random position
       preyX = random(0, width);
       preyY = random(0, height);
@@ -225,7 +227,7 @@ function checkEating() {
       preyHealth = preyMaxHealth;
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
-      preyEatenMusic.play();
+
     }
   }
 }
