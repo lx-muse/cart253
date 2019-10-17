@@ -41,7 +41,8 @@ let leftPaddle = {
   vy: 0,
   speed: 5,
   upKey: 87,
-  downKey: 83
+  downKey: 83,
+  leftScore: 0,
 }
 
 // RIGHT PADDLE
@@ -56,7 +57,8 @@ let rightPaddle = {
   vy: 0,
   speed: 5,
   upKey: 38,
-  downKey: 40
+  downKey: 40,
+  rightScore: 0,
 }
 
 // A variable to hold the beep sound we will play on bouncing
@@ -117,6 +119,9 @@ function draw() {
     checkBallWallCollision();
     checkBallPaddleCollision(leftPaddle);
     checkBallPaddleCollision(rightPaddle);
+
+    displayScore(leftPaddle);
+    displayScore(rightPaddle);
 
     // Check if the ball went out of bounds and respond if so
     // (Note how we can use a function that returns a truth value
@@ -184,10 +189,20 @@ function updateBall() {
 // Returns true if so, false otherwise
 function ballIsOutOfBounds() {
   // Check for ball going off the sides
-  if (ball.x < 0 || ball.x > width) {
+  if (ball.x < 0 ) {
+    // player on the right will get a point
+  rightPaddle.rightScore ++;
+    console.log(rightPaddle.rightScore);
+    return true;
+  }
+  else if(ball.x > width) {
+    // player on the left gets a point
+    leftPaddle.leftScore ++;
+    console.log(leftPaddle.leftScore);
     return true;
   }
   else {
+    // no one gets points, no changes
     return false;
   }
 }
@@ -255,6 +270,16 @@ function displayBall() {
   // Draw the ball
   rect(ball.x, ball.y, ball.size, ball.size);
 }
+
+//displayScore()
+//
+//display the score as square on each player's side
+//
+function displayScore() {
+
+
+}
+
 
 // resetBall()
 //
