@@ -1,7 +1,7 @@
 "use strict";
 
 // Pong
-// by Pippin Barr
+// by Marie-Christine Larivière, template from Pippin Barr
 //
 // A "simple" implementation of Pong with no scoring system
 // just the ability to play the game with the keyboard.
@@ -59,6 +59,24 @@ let rightPaddle = {
   upKey: 38,
   downKey: 40,
   rightScore: 0,
+}
+// METER
+
+// Basic definition the meters object with their key properties of
+// position, and size
+let leftScoreMeterNum;
+let leftScoreMeter = {
+  x: 20,
+  y: 20,
+  w: 5,
+  h: 20,
+}
+let rightScoreMeterNum;
+let rightScoreMeter = {
+  x: 620,
+  y: 20,
+  w: 5,
+  h: 20,
 }
 
 // A variable to hold the beep sound we will play on bouncing
@@ -119,9 +137,6 @@ function draw() {
     checkBallWallCollision();
     checkBallPaddleCollision(leftPaddle);
     checkBallPaddleCollision(rightPaddle);
-
-    displayScore(leftPaddle);
-    displayScore(rightPaddle);
 
     // Check if the ball went out of bounds and respond if so
     // (Note how we can use a function that returns a truth value
@@ -273,10 +288,23 @@ function displayBall() {
 
 //displayScore()
 //
-//display the score as square on each player's side
-//
+//display the score as bars on each player's side
 function displayScore() {
 
+  for (let i = 0; i < leftPaddle.leftScore; i++) {
+  // Instructions go here
+    rect(leftScoreMeter.x, leftScoreMeter.y, leftScoreMeter.w, leftScoreMeter.h);
+    // x = x + 20;
+    // leftScoreMeter.x = leftScoreMeter.x + 20;
+    }
+
+
+  for (let i = 0; i < rightPaddle.rightScore; i++) {
+  // Instructions go here
+    rect(rightScoreMeter.x, rightScoreMeter.y, rightScoreMeter.w, rightScoreMeter.h);
+    // rightScoreMeterNum ++;
+
+  }
 
 }
 
