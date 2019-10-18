@@ -64,14 +64,12 @@ let rightPaddle = {
 
 // Basic definition the meters object with their key properties of
 // position, and size
-let leftScoreMeterNum;
 let leftScoreMeter = {
   x: 20,
   y: 20,
   w: 5,
   h: 20,
 }
-let rightScoreMeterNum;
 let rightScoreMeter = {
   x: 620,
   y: 20,
@@ -146,6 +144,7 @@ function draw() {
       resetBall();
       // This is where we would likely count points, depending on which side
       // the ball went off...
+      displayScore();
     }
   }
   else {
@@ -294,8 +293,7 @@ function displayScore() {
   for (let i = 0; i < leftPaddle.leftScore; i++) {
   // Instructions go here
     rect(leftScoreMeter.x, leftScoreMeter.y, leftScoreMeter.w, leftScoreMeter.h);
-    // x = x + 20;
-    // leftScoreMeter.x = leftScoreMeter.x + 20;
+    leftScoreMeter.x = leftScoreMeter.x + 20;
     }
 
 
