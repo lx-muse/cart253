@@ -6,12 +6,12 @@
 // The predator loses health over time, so must keep eating to survive.
 
 // Our predator
-let tiger;
+let player;
 
 // The three prey
-let antelope;
-let zebra;
-let bee;
+let cellA;
+let cellB;
+let cellC;
 
 // setup()
 //
@@ -19,10 +19,10 @@ let bee;
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
-  antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-  zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
-  bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+  player = new Predator(100, 100, 5, color(200, 200, 0), 40);
+  cellA = new Predator(100, 100, 10, color(255, 100, 10), 50);
+  cellB = new Predator(100, 100, 8, color(255, 255, 255), 60);
+  cellC = new Predator(100, 100, 20, color(255, 255, 0), 10);
 }
 
 // draw()
@@ -33,22 +33,34 @@ function draw() {
   background(0);
 
   // Handle input for the tiger
-  tiger.handleInput();
+  player.handleInput();
 
   // Move all the "animals"
-  tiger.move();
-  antelope.move();
-  zebra.move();
-  bee.move();
+  player.move();
+  cellA.move();
+  cellB.move();
+  cellC.move();
 
-  // Handle the tiger eating any of the prey
-  tiger.handleEating(antelope);
-  tiger.handleEating(zebra);
-  tiger.handleEating(bee);
+  // Handle the player eating any of the prey
+  player.handleEating(cellA);
+  player.handleEating(cellB);
+  player.handleEating(cellC);
+  // Handle the other cell eating
+  cellA.handleEating(player);
+  cellA.handleEating(cellB);
+  cellA.handleEating(cellC);
+
+  cellB.handleEating(player);
+  cellB.handleEating(cellA);
+  cellB.handleEating(cellC);
+
+  cellC.handleEating(player);
+  cellC.handleEating(cellA);
+  cellC.handleEating(cellB);
 
   // Display all the "animals"
-  tiger.display();
-  antelope.display();
-  zebra.display();
-  bee.display();
+  player.display();
+  cellA.display();
+  cellB.display();
+  cellC.display();
 }
