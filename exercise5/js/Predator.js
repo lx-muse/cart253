@@ -134,13 +134,20 @@ class Predator {
   // display
   //
   // Draw the predator as an ellipse on the canvas
-  // with a radius the same size as its current health.
+  // - with a radius the same size as its current health,
+  // - with the number of prey eaten
   display() {
     push();
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
+    pop();
+    push();
+    textFont();
+    textSize(this.radius);
+    textAlign(CENTER);
+    text(this.preyEaten, this.x, this.y);
     pop();
   }
 }
