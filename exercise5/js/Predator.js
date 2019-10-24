@@ -10,14 +10,16 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey) {
+  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, sprintKey) {
     // Position
     this.x = x;
     this.y = y;
     // Velocity and speed
     this.vx = 0;
     this.vy = 0;
+    this.defaultSpeed = speed;
     this.speed = speed;
+    this.doubleSpeed = speed * 2;
     // Health properties
     this.maxHealth = radius;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
@@ -31,6 +33,7 @@ class Predator {
     this.downKey = downKey;
     this.leftKey = leftKey;
     this.rightKey = rightKey;
+    this.sprintKey = sprintKey;
 
   }
 
@@ -59,11 +62,11 @@ class Predator {
     else {
       this.vy = 0;
     }
-    // if (keyIsDown(sprintKey)) {
-    //   this.speed === this.speed * 2;
-    // } else {
-    //   this.speed;
-    // }
+    if (keyIsDown(this.sprintKey)) {
+      this.speed = this.doubleSpeed;
+    } else {
+      this.speed = this.defaultSpeed;
+    }
   }
 
   // move
