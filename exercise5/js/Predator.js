@@ -34,7 +34,8 @@ class Predator {
     this.leftKey = leftKey;
     this.rightKey = rightKey;
     this.sprintKey = sprintKey;
-
+    // Keeping track of prey eaten
+    this.preyEaten = 0;
   }
 
   // handleInput
@@ -124,6 +125,8 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
+        this.preyEaten ++;
+        console.log(this.preyEaten)
       }
     }
   }
