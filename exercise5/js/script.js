@@ -5,13 +5,23 @@
 // The predator chases the prey using the arrow keys and consumes them.
 // The predator loses health over time, so must keep eating to survive.
 
-// Our predator
+// Our predators
 let tiger;
+let lion;
 
 // The three prey
 let antelope;
 let zebra;
 let bee;
+
+//preload()
+//
+// Loads the predators and prey images
+function preload() {
+  // tigerImage = loadImage("assets/images/animals-target.png");
+  // lionImage = loadImage("assets/images/animals-target-clue.png")
+  preyImage = loadImage("assets/images/fish.png");
+}
 
 // setup()
 //
@@ -20,9 +30,9 @@ let bee;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
-  lion = new Predator(100, 100, 5, color(0, 200, 200), 40, 87, 83, 65, 68, 70);
+  lion = new Predator(windowWidth - 100, windowHeight - 100, 5, color(0, 200, 200), 40, 87, 83, 65, 68, 70);
 
-  antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
+  antelope = new Prey(100, 100, 10, color(0,0,200), 50);
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 }

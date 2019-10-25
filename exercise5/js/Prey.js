@@ -26,6 +26,7 @@ class Prey {
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
     // Display properties
     this.fillColor = fillColor;
+    this.image = loadImage("assets/images/fish.png");
     this.radius = this.health;
   }
 
