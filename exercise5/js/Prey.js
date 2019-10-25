@@ -84,7 +84,7 @@ class Prey {
     this.h = this.health;
     // ellipse(this.x, this.y, this.radius * 2);
     imageMode(CENTER);
-    image(this.image, this.x, this.y, this.w, this.h )
+    image(this.image, this.x, this.y, this.w, this.h );
     pop();
   }
 

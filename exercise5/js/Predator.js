@@ -10,7 +10,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, sprintKey) {
+  constructor(x, y, speed, fillColor, radius, upKey, downKey, leftKey, rightKey, sprintKey, avatar) {
     // Position
     this.x = x;
     this.y = y;
@@ -28,6 +28,9 @@ class Predator {
     // Display properties
     this.fillColor = fillColor;
     this.radius = this.health; // Radius is defined in terms of health
+    this.w = this.health;
+    this.h = this.health;
+    this.avater = Image()
     // // Input properties
     this.upKey = upKey;
     this.downKey = downKey;
@@ -142,6 +145,8 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
+    imageMode(CENTER);
+    image(this.avatar, this.x, this.y, this.w, this.h );
     pop();
     push();
     textFont();
