@@ -145,8 +145,8 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
-    imageMode(CENTER);
-    image(this.avatar, this.x, this.y, this.w, this.h );
+    // imageMode(CENTER);
+    // image(this.avatar, this.x, this.y, this.w, this.h );
     pop();
     push();
     textFont();
