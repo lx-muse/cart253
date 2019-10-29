@@ -28,9 +28,10 @@ class Predator {
     // Display properties
     this.fillColor = fillColor;
     this.radius = this.health; // Radius is defined in terms of health
+    //paramaters to display images
     this.w = this.health;
     this.h = this.health;
-    this.avater = Image()
+    this.avatar = avatar;
     // // Input properties
     this.upKey = upKey;
     this.downKey = downKey;
