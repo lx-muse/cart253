@@ -19,7 +19,7 @@ let bee;
 // Loads the predators and prey images
 function preload() {
   tigerImage = loadImage("assets/images/cat.png");
-  lionImage = loadImage("assets/images/cat2.png")
+  lionImage = loadImage("assets/images/cat2.png");
   preyImage = loadImage("assets/images/fish.png");
 }
 
