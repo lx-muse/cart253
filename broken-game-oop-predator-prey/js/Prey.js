@@ -39,7 +39,7 @@ class Prey {
   //
   // Sets velocity based on the noise() function and the Prey's speed
   // Moves based on the resulting velocity and handles wrapping
-  // FIXED - move() = same function in script.js
+  // FIXED - move() = same function in script.js - FIXED - handlewrapping()
   move() {
     // Set velocity via noise()
     this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
@@ -51,7 +51,7 @@ class Prey {
     this.tx += 0.01;
     this.ty += 0.01;
     // Handle wrapping
-    this.handleWarping();
+    this.handleWrapping();
 }
     //FIXED - missing bracket
     // handleWrapping
@@ -59,7 +59,7 @@ class Prey {
     // Checks if the prey has gone off the canvas and
     // wraps it to the other side if so
     handleWrapping() {
-      //FIXED - handle to the left: <
+      //FIXED - handle to the left: <  - typo height
       // Off the left or right
       if (this.x < 0) {
         this.x += width;
@@ -72,7 +72,7 @@ class Prey {
         this.y += height;
       }
       else if (this.y > height) {
-        this.y -= hight;
+        this.y -= height;
       }
     }
 
