@@ -15,7 +15,8 @@
 let tiger;
 
 // The three prey
-let antelop;
+// Fixed typo antelope
+let antelope;
 let zebra;
 let bee;
 
@@ -23,10 +24,11 @@ let bee;
 //
 // Sets up a canvas
 // Creates objects for the predator and three prey
-// FIXED - space
+// FIXED - spacing beore setup() - comma in parameters
 function setup() {
+  console.log(setup);
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40);
+  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
   zebra = new Prey(100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
@@ -39,7 +41,7 @@ function draw() {
   // FIXED - typo + missing commands for tiger and bee
   // Clear the background to black
   background(0);
-
+  console.log();
   // Handle input for the tiger
   tiger.handleInput();
 
@@ -56,8 +58,8 @@ function draw() {
 
   // Display all the "animals"
   tiger.display();
-  antelop.display();
-  zebra.disploy();
+  antelope.display();
+  zebra.display();
   bee.display();
 }
-  //FIXED - bee
+  //FIXED typo - b - antelop - disploy
