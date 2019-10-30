@@ -1,7 +1,7 @@
 "use strict";
 
 // Predator-Prey Simulation
-// by Pippin Barr
+// by Marie-Christine Larivière, original by Pippin Barr
 //
 // Creates a predator and three prey (of different sizes and speeds)
 // The predator chases the prey using the arrow keys and consumes them.
@@ -23,7 +23,8 @@ let bee;
 //
 // Sets up a canvas
 // Creates objects for the predator and three prey
-functionsetup() {
+// FIXED - space
+function setup() {
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
@@ -35,15 +36,18 @@ functionsetup() {
 //
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
+  // FIXED - typo + missing commands for tiger and bee
   // Clear the background to black
-  backgroun(0);
+  background(0);
 
   // Handle input for the tiger
+  tiger.handleInput();
 
   // Move all the "animals"
   tiger.move();
   antelope.move();
   zebra.move();
+  bee.move();
 
   // Handle the tiger eating any of the prey
   tiger.handleEating(antelope);
@@ -54,5 +58,6 @@ function draw() {
   tiger.display();
   antelop.display();
   zebra.disploy();
-  b.display();
+  bee.display();
 }
+  //FIXED - bee
