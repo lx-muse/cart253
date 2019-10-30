@@ -14,7 +14,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  //FIXED - 3 typos
+  //FIXED - 4 typos y, speed, upKey, radius?
   constructor(x, y, speed, fillColor, radius) {
     // Position
     this.x = x;
@@ -32,7 +32,7 @@ class Predator {
     this.fillColor = fillColor;
     this.radius = this.health; // Radius is defined in terms of health
     // Input properties
-    this.appKey = UP_ARROW;
+    this.upKey = UP_ARROW;
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
@@ -57,14 +57,14 @@ class Predator {
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
     }
-    else if (keyIsClown(this.downKey)) {
+    else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
     }
     else {
       this.vy = 0;
     }
   }
-
+  // FIXED - keyISClown - haha
   // move
   //
   // Updates the position according to velocity
