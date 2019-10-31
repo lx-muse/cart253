@@ -14,6 +14,8 @@ let antelope;
 let zebra;
 let bee;
 
+let tigerImage;
+let lionImage;
 //preload()
 //
 // Loads the predators and prey images
@@ -29,8 +31,8 @@ function preload() {
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
-  lion = new Predator(windowWidth - 100, windowHeight - 100, 5, color(0, 200, 200), 40, 87, 83, 65, 68, 70);
+  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT,tigerimage);
+  lion = new Predator(windowWidth - 100, windowHeight - 100, 5, color(0, 200, 200), 40, 87, 83, 65, 68, 70, lionImage);
 
   antelope = new Prey(100, 100, 10, color(0,0,200), 50);
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
