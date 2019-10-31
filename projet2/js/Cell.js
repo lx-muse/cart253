@@ -84,9 +84,9 @@ class Cell {
       // Update position
       this.x += this.vx;
       this.y += this.vy;
-      // Update health
-      this.health = this.health - this.healthLossPerMove;
-      this.health = constrain(this.health, 0, this.maxHealth);
+      // Update health or not
+      // this.health = this.health - this.healthLossPerMove;
+      // this.health = constrain(this.health, 0, this.maxHealth);
       // Handle wrapping
       this.handleWrapping();
     }
@@ -98,8 +98,8 @@ class Cell {
       this.x += this.vx;
       this.y += this.vy;
       // Update time properties
-      this.tx += 0.01;
-      this.ty += 0.01;
+      this.tx += 0.000001;
+      this.ty += 0.000001;
       // Handle wrapping
       this.handleWrapping();
     }
@@ -143,7 +143,9 @@ class Cell {
       prey.health -= this.healthGainPerEat;
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
-        prey.reset();
+        
+        // prey.reset();
+
       }
     }
   }
@@ -160,6 +162,7 @@ class Cell {
     ellipse(this.x, this.y, this.radius * 2);
     pop();
   }
+
   reset() {
     // Random position
     this.x = random(0, width);

@@ -10,7 +10,7 @@ let player;
 let autopilot;
 
 // The number of Prey to put into the simulation
-let numPrey = 100;
+let numPrey = 40;
 
 // The prey array to contain all the Prey objects
 // It starts out empty because we're going to add all the new Prey objects
@@ -25,7 +25,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   // The player is a predator with key imputs for movement
 
-  player = new Cell(100, 100, 5, color(200, 200, 0), 40, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
+  player = new Cell(100, 100, 5, color(200, 200, 0), 20, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
 
   // We use a for loop going from 0 up to the number of prey
   // and each time through the loop we create a new prey and
@@ -34,9 +34,9 @@ function setup() {
     // Generate (mostly) random values for the arguments of the Prey constructor + autopilot
     let preyX = random(0, width);
     let preyY = random(0, height);
-    let preySpeed = random(2, 10);
+    let preySpeed = random(0.2, 2);
     let preyColor = color(100, 100, 100);
-    let preyRadius = random(3, 50);
+    let preyRadius = random(3, 60);
 
     // Create a new Prey objects with the random values
     let newPrey = new Cell(preyX, preyY, preySpeed, preyColor, preyRadius, true);
@@ -64,27 +64,38 @@ function draw() {
   for (let i = 0; i < prey.length; i++) {
     // ... and tell it to move. Note the use of "i" to give the address/location
     // in the array of the specific Prey element we want to "talk to"
-    prey[i].move();
+    // Note: our prey wont reset
+    if(prey[i].health > 0){
+      prey[i].move();
+      // Because the player could eat any Prey object in the array, we need to
+      // do the same kind of loop again for handleEating...
+      player.handleEating(prey[i]);
+      // And again we ask prey[i] to display itself because i gives us the current
+      // element we are counting through in the loop
+      prey[i].display();
+    }
   }
 
-  // Because the Osmosis happens to anyone  in the game, we need to do the same kind of
-  // loop again for handleEating...
+
+
+  // Because Osmosis happens to anyone  in the game, we need a
+  // loop again for the prey'shandleEating...
   for (let i = 0; i < prey.length; i++) {
-    // Again, we refer to prey[i] to get the current Prey object as we
-    // count through the array one by one
-    player.handleEating(prey[i]);
+  // Then make sure everyone's eating is checked
+  for (let j = i; j < prey.length; j++) {
+
+    if (i !== j) {
+      // Again, we refer to prey[i] to get the current Prey object as we
+      // count through the array one by one
+      prey[i].handleEating(prey[j]);
+    }
+    }
   }
+
 
   // Display the tiger
   player.display();
 
-  // And again we need to use the loop to go through the entire prey array
-  // and tell each one in there to display itself
-  for (let i = 0; i < prey.length; i++) {
-    // And again we ask prey[i] to display itself because i gives us the current
-    // element we are counting through in the loop
-    prey[i].display();
-  }
 }
 
 
