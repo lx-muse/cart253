@@ -10,7 +10,7 @@ class Cell {
   //
   // Sets the initial values for the Predator's & Prey mixed properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, autopilot, upKey, downKey, leftKey, rightKey, sprintKey, avatar ) {
+  constructor(x, y, speed, fillColor, radius, autopilot, upKey, downKey, leftKey, rightKey, sprintKey) {
     // Position
     this.x = x;
     this.y = y;
@@ -79,7 +79,8 @@ class Cell {
   // Lowers health (as a cost of living)
   // Handles wrapping
   move() {
-    if(this.autopilot = false){
+    if(this.autopilot == false){
+      console.log(this.vx)
       // Update position
       this.x += this.vx;
       this.y += this.vy;
@@ -159,4 +160,13 @@ class Cell {
     ellipse(this.x, this.y, this.radius * 2);
     pop();
   }
-}
+  reset() {
+    // Random position
+    this.x = random(0, width);
+    this.y = random(0, height);
+    // Default health
+    this.health = this.maxHealth;
+    // Default radius
+    this.radius = this.health;
+  }
+  }

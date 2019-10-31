@@ -7,6 +7,7 @@
 
 // Our predator
 let player;
+let autopilot;
 
 // The number of Prey to put into the simulation
 let numPrey = 100;
@@ -22,9 +23,9 @@ let prey = [];
 // Creates objects for the predator and the array of prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // The tiger is a predator with key imputs for movement
-  let playerAutopilot = false;
-  player = new Cell(100, 100, 5, color(200, 200, 0), 40, playerAutopilot, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
+  // The player is a predator with key imputs for movement
+
+  player = new Cell(100, 100, 5, color(200, 200, 0), 40, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
 
   // We use a for loop going from 0 up to the number of prey
   // and each time through the loop we create a new prey and
@@ -36,9 +37,9 @@ function setup() {
     let preySpeed = random(2, 10);
     let preyColor = color(100, 100, 100);
     let preyRadius = random(3, 50);
-    let preyAutopilot = true;
+
     // Create a new Prey objects with the random values
-    let newPrey = new Cell(preyX, preyY, preySpeed, preyColor, preyRadius, preyAutopilot, upKey, downKey, leftKey, rightKey, sprintKey);
+    let newPrey = new Cell(preyX, preyY, preySpeed, preyColor, preyRadius, true);
     // Add the new Prey object to the END of our array using push()
     prey.push(newPrey);
   }
@@ -51,10 +52,10 @@ function draw() {
   // Clear the background to black
   background(0);
 
-  // Handle input for the tiger
+  // Handle input for the player
   player.handleInput();
 
-  // Move the tiger
+  // Move the player
   player.move();
 
   // For the prey we need to use a loop to go through each
@@ -66,7 +67,7 @@ function draw() {
     prey[i].move();
   }
 
-  // Because the tiger could eat any Prey object in the array, we need to do the same kind of
+  // Because the Osmosis happens to anyone  in the game, we need to do the same kind of
   // loop again for handleEating...
   for (let i = 0; i < prey.length; i++) {
     // Again, we refer to prey[i] to get the current Prey object as we
