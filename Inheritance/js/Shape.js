@@ -10,6 +10,8 @@ class Shape {
   }
   display() {
     // A generic shape cannot be displayed
+    // Must add display() in every children
     // But it makes sense to tell anyone extending this class to include one!
+    console.log("Error! Generic shape cannt be display!")
   }
 }
