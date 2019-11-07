@@ -80,7 +80,6 @@ class Cell {
   // Handles wrapping
   move() {
     if(this.autopilot == false){
-      console.log(this.vx)
       // Update position
       this.x += this.vx;
       this.y += this.vy;
@@ -144,7 +143,6 @@ class Cell {
         cell.health -= this.healthGainPerEat;
         // Check if the prey died and reset it if so
         if (cell.health < 0) {
-  
         // prey.reset();
         }
       }
@@ -157,7 +155,6 @@ class Cell {
         //check if the player died
         if(this.health < 0)
         this.radius = 0;
-        playing = false;
       }
     }
   }

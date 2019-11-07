@@ -6,7 +6,11 @@
 // The predator loses health over time, so must keep eating to survive.
 
 // The game status
-let playing = false;
+let currentScene; // To store the current scene; thank you Pippin
+let titleScene;
+let instructionsScene;
+let playScene;
+let gameOverScene;
 
 // Our predator
 let player;
@@ -44,6 +48,15 @@ function preload() {
 // Creates objects for the predator and the array of prey
 // Sets up music and visuals too
 function setup() {
+  // Create the four scenes
+  titleScene = new TitleState();
+  instructionsScene = new InstructionsState();
+  playScene = new PlayState();
+  // gameOverScene = new GameOverSate();
+
+  currentScene = titleScene;
+
+  //Ux/Ui
   createCanvas(windowWidth, windowHeight);
   bgMusic.loop = true;
   bgMusic.play();
@@ -75,6 +88,10 @@ function setup() {
 function draw() {
   // Clear the background to black
   background(bgImage);
+
+  // In draw we just tell the current scene to draw
+  // and whichever scene it is will display as per its class
+  currentScene.draw();
 
   // Handle input for the player
   player.handleInput();
@@ -122,7 +139,9 @@ function draw() {
 
 
 function mousePressed() {
-  playing = true;
+  // In mousePressed we call the mousePressed of the current scene
+  // so it knows the mouse was pressed
+  currentScene.mousePressed();
 }
 
 
