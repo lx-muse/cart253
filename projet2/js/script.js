@@ -10,14 +10,14 @@ let currentScene; // To store the current scene; thank you Pippin
 let titleScene;
 let instructionsScene;
 let playScene;
-let gameOverScene;
+// let gameOverScene;
 
 // Our predator
 let player;
 let autopilot;
 
 // The number of Prey to put into the simulation
-let numPrey = 30;
+let numPrey = 40;
 
 // The prey array to contain all the Prey objects
 // It starts out empty because we're going to add all the new Prey objects
@@ -30,16 +30,19 @@ let preyEatenMusic;
 
 let bgImage;
 let playerImage;
-let cellImages;
+let preyImage;
 let numCellImages;
 
 // preload()
 // prepare sounds and visuals
-
 function preload() {
   bgMusic = loadSound("assets/sounds/relaxing.mp3");
   preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
-  bgImage = bgImage = loadImage("assets/images/bgImage.png");
+
+  bgImage = loadImage("assets/images/bgImage.png");
+  playerImage = loadImage("assets/images/cellPlayer2.png");
+  preyImage = loadImage("assets/images/cellPrey.png");
+  console.log(playerImage);
 }
 
 // setup()
@@ -48,6 +51,12 @@ function preload() {
 // Creates objects for the predator and the array of prey
 // Sets up music and visuals too
 function setup() {
+
+  //Ux/Ui
+  createCanvas(windowWidth, windowHeight);
+  bgMusic.loop = true;
+  bgMusic.play();
+
   // Create the four scenes
   titleScene = new TitleState();
   instructionsScene = new InstructionsState();
@@ -56,13 +65,8 @@ function setup() {
 
   currentScene = titleScene;
 
-  //Ux/Ui
-  createCanvas(windowWidth, windowHeight);
-  bgMusic.loop = true;
-  bgMusic.play();
-
   // The player is a predator with key imputs for movement
-  player = new Cell(100, 100, 5, color(200, 200, 0), 20, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
+  player = new Cell(100, 100, 5, playerImage, 20, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
 
   // We use a for loop going from 0 up to the number of prey
   // and each time through the loop we create a new prey and
@@ -72,11 +76,10 @@ function setup() {
     let preyX = random(0, width);
     let preyY = random(0, height);
     let preySpeed = random(0.2, 2);
-    let preyColor = color(100, 100, 100);
     let preyRadius = random(3, 30);
 
     // Create a new Prey objects with the random values
-    let newPrey = new Cell(preyX, preyY, preySpeed, preyColor, preyRadius, true);
+    let newPrey = new Cell(preyX, preyY, preySpeed, preyImage, preyRadius, true);
     // Add the new Prey object to the END of our array using push()
     prey.push(newPrey);
   }
@@ -92,48 +95,6 @@ function draw() {
   // In draw we just tell the current scene to draw
   // and whichever scene it is will display as per its class
   currentScene.draw();
-
-  // Handle input for the player
-  player.handleInput();
-
-  // Move the player
-  player.move();
-
-  // For the prey we need to use a loop to go through each
-  // Prey object in the array (note the use of prey.length to automatically
-  // get the length of the array, so we only count through exactly what's there)
-  for (let i = 0; i < prey.length; i++) {
-    // ... and tell it to move. Note the use of "i" to give the address/location
-    // in the array of the specific Prey element we want to "talk to"
-    // Note: our prey wont reset
-    if (prey[i].health > 0) {
-      prey[i].move();
-      // Because the player could eat any Prey object in the array, we need to
-      // do the same kind of loop again for handleEating...
-      player.handleEating(prey[i]);
-      // And again we ask prey[i] to display itself because i gives us the current
-      // element we are counting through in the loop
-      prey[i].display();
-    }
-  }
-
-  // Because Osmosis happens to anyone  in the game, we need a
-  // loop again for the prey'shandleEating...
-  for (let i = 0; i < prey.length; i++) {
-    // Then make sure everyone's eating is checked
-    for (let j = i; j < prey.length; j++) {
-
-      if (i !== j) {
-        // Again, we refer to prey[i] to get the current Prey object as we
-        // count through the array one by one
-        prey[i].handleEating(prey[j]);
-
-      }
-    }
-  }
-
-  // Display the tiger
-  player.display();
 
 }
 

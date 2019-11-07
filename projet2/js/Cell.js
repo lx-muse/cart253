@@ -10,10 +10,12 @@ class Cell {
   //
   // Sets the initial values for the Predator's & Prey mixed properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius, autopilot, upKey, downKey, leftKey, rightKey, sprintKey) {
+  constructor(x, y, speed, avatar, radius, autopilot, upKey, downKey, leftKey, rightKey, sprintKey) {
     // Position
     this.x = x;
     this.y = y;
+    this.w = this.radius;
+    this.h = this.radius;
     // Velocity and speed
     this.vx = 0;
     this.vy = 0;
@@ -29,7 +31,8 @@ class Cell {
     this.healthLossPerMove = 0.1;
     this.healthGainPerEat = 1;
     // Display properties
-    this.fillColor = fillColor;
+    this.avatar = avatar;
+    console.log(avatar);
     this.radius = this.health; // Radius is defined in terms of health
     // Input properties
     this.autopilot = autopilot;
@@ -97,8 +100,8 @@ class Cell {
       this.x += this.vx;
       this.y += this.vy;
       // Update time properties
-      this.tx += 0.00000001;
-      this.ty += 0.00000001;
+      this.tx += 0.0000000001;
+      this.ty += 0.0000000001;
       // Handle wrapping
       this.handleWrapping();
     }
@@ -139,6 +142,7 @@ class Cell {
         // Increase predator health and constrain it to its possible range
         this.health += this.healthGainPerEat;
         this.health = constrain(this.health, 0, this.maxHealth);
+        preyEatenMusic.play();
         // Decrease prey health by the same amount
         cell.health -= this.healthGainPerEat;
         // Check if the prey died and reset it if so
@@ -155,6 +159,7 @@ class Cell {
         //check if the player died
         if(this.health < 0)
         this.radius = 0;
+        // currentScene = gameOverScene;
       }
     }
   }
@@ -166,9 +171,9 @@ class Cell {
   display() {
     push();
     noStroke();
-    fill(this.fillColor);
+    image(this.avatar, this.x, this.y, this.radius, this.radius);
     this.radius = this.health;
-    ellipse(this.x, this.y, this.radius * 2);
+    // ellipse(this.x, this.y, this.radius * 2);
     pop();
   }
 

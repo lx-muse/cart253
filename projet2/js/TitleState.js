@@ -4,9 +4,18 @@ class TitleState extends Scene {
   }
 
   draw() {
+    background(bgImage);
     // Here we would draw the title on the screen
-    text("My amazing game",0,0);
-    text("Click for instructions",0,20);
+    console.log("Title")
+    textFont();
+    textSize(50);
+    textAlign(CENTER,CENTER);
+    noStroke();
+    fill("#D8EDF2");
+    text("Osmosis Simulation", windowWidth / 2, windowHeight / 2 -20);
+    textSize(30);
+    text("Click for instructions", windowWidth / 2, windowHeight / 2 + 60);
+
 
   }
 
@@ -14,6 +23,6 @@ class TitleState extends Scene {
     // state and instructionsScene are global variables defined in the main script
     // and we use them to change the current state of the program
     // so this will switch the state to the instructions
-    state = instructionsScene;
+    currentScene = instructionsScene;
   }
 }

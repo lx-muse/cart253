@@ -5,10 +5,19 @@ class GameOverState extends Scene {
 
   draw() {
     // Here we would draw the game over on the screen
-    text("GAME OVER!",0,0);
+    console.log("Game Over")
+    textFont();
+    textSize(50);
+    textAlign(CENTER,CENTER);
+    noStroke();
+    fill("#D8EDF2");
+    text("GAME OVER!",windowWidth / 2, windowHeight / 2 - 20);
+    textSize(30);
+    text("Click to play again",windowWidth / 2, windowHeight / 2 + 60);
   }
 
   mousePressed() {
-    // Nothing, because the game is over
+    // We might want to play again
+    currentScene = titleScene;
   }
 }
