@@ -5,26 +5,50 @@
 // The predator chases the prey using the arrow keys and consumes them.
 // The predator loses health over time, so must keep eating to survive.
 
+// The game status
+let playing = false;
+
 // Our predator
 let player;
 let autopilot;
 
 // The number of Prey to put into the simulation
-let numPrey = 40;
+let numPrey = 30;
 
 // The prey array to contain all the Prey objects
 // It starts out empty because we're going to add all the new Prey objects
 // using a loop in our setup function.
 let prey = [];
 
+// Variables used for sounds and visuals
+let bgMusic;
+let preyEatenMusic;
+
+let bgImage;
+let playerImage;
+let cellImages;
+let numCellImages;
+
+// preload()
+// prepare sounds and visuals
+
+function preload() {
+  bgMusic = loadSound("assets/sounds/relaxing.mp3");
+  preyEatenMusic = loadSound("assets/sounds/intuition.mp3");
+  bgImage = bgImage = loadImage("assets/images/bgImage.png");
+}
+
 // setup()
 //
 // Sets up a canvas
 // Creates objects for the predator and the array of prey
+// Sets up music and visuals too
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // The player is a predator with key imputs for movement
+  bgMusic.loop = true;
+  bgMusic.play();
 
+  // The player is a predator with key imputs for movement
   player = new Cell(100, 100, 5, color(200, 200, 0), 20, false, UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW, SHIFT);
 
   // We use a for loop going from 0 up to the number of prey
@@ -36,7 +60,7 @@ function setup() {
     let preyY = random(0, height);
     let preySpeed = random(0.2, 2);
     let preyColor = color(100, 100, 100);
-    let preyRadius = random(3, 60);
+    let preyRadius = random(3, 30);
 
     // Create a new Prey objects with the random values
     let newPrey = new Cell(preyX, preyY, preySpeed, preyColor, preyRadius, true);
@@ -50,7 +74,7 @@ function setup() {
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
   // Clear the background to black
-  background(0);
+  background(bgImage);
 
   // Handle input for the player
   player.handleInput();
@@ -65,7 +89,7 @@ function draw() {
     // ... and tell it to move. Note the use of "i" to give the address/location
     // in the array of the specific Prey element we want to "talk to"
     // Note: our prey wont reset
-    if(prey[i].health > 0){
+    if (prey[i].health > 0) {
       prey[i].move();
       // Because the player could eat any Prey object in the array, we need to
       // do the same kind of loop again for handleEating...
@@ -76,26 +100,29 @@ function draw() {
     }
   }
 
-
-
   // Because Osmosis happens to anyone  in the game, we need a
   // loop again for the prey'shandleEating...
   for (let i = 0; i < prey.length; i++) {
-  // Then make sure everyone's eating is checked
-  for (let j = i; j < prey.length; j++) {
+    // Then make sure everyone's eating is checked
+    for (let j = i; j < prey.length; j++) {
 
-    if (i !== j) {
-      // Again, we refer to prey[i] to get the current Prey object as we
-      // count through the array one by one
-      prey[i].handleEating(prey[j]);
-    }
+      if (i !== j) {
+        // Again, we refer to prey[i] to get the current Prey object as we
+        // count through the array one by one
+        prey[i].handleEating(prey[j]);
+
+      }
     }
   }
-
 
   // Display the tiger
   player.display();
 
+}
+
+
+function mousePressed() {
+  playing = true;
 }
 
 

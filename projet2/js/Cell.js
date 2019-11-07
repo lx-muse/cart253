@@ -98,8 +98,8 @@ class Cell {
       this.x += this.vx;
       this.y += this.vy;
       // Update time properties
-      this.tx += 0.000001;
-      this.ty += 0.000001;
+      this.tx += 0.00000001;
+      this.ty += 0.00000001;
       // Handle wrapping
       this.handleWrapping();
     }
@@ -131,21 +131,33 @@ class Cell {
   // Takes a Prey object as an argument and checks if the predator
   // overlaps it. If so, reduces the prey's health and increases
   // the predator's. If the prey dies, it gets reset.
-  handleEating(prey) {
+  handleEating(cell) {
     // Calculate distance from this predator to the prey
-    let d = dist(this.x, this.y, prey.x, prey.y);
+    let d = dist(this.x, this.y, cell.x, cell.y);
     // Check if the distance is less than their two radii (an overlap)
-    if (d < this.radius + prey.radius) {
-      // Increase predator health and constrain it to its possible range
-      this.health += this.healthGainPerEat;
-      this.health = constrain(this.health, 0, this.maxHealth);
-      // Decrease prey health by the same amount
-      prey.health -= this.healthGainPerEat;
-      // Check if the prey died and reset it if so
-      if (prey.health < 0) {
-        
+    if (d < this.radius + cell.radius && cell.health > 0) {
+      if(this.radius > cell.radius){
+        // Increase predator health and constrain it to its possible range
+        this.health += this.healthGainPerEat;
+        this.health = constrain(this.health, 0, this.maxHealth);
+        // Decrease prey health by the same amount
+        cell.health -= this.healthGainPerEat;
+        // Check if the prey died and reset it if so
+        if (cell.health < 0) {
+  
         // prey.reset();
-
+        }
+      }
+      else {
+        //Decrease predator health
+        this.health -= this.healthGainPerEat;
+        cell.health = constrain(cell.health, 0, cell.maxHealth);
+        //Increase prey health
+        cell.health += this.healthGainPerEat;
+        //check if the player died
+        if(this.health < 0)
+        this.radius = 0;
+        playing = false;
       }
     }
   }
