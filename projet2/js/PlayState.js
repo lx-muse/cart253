@@ -10,7 +10,7 @@ class PlayState extends Scene {
     // text("THE GAME IS ON!",0,0);
     textFont();
     textSize(15);
-    textAlign(TOP,LEFT);
+    textAlign(CENTER,LEFT);
     noStroke();
     fill("#D8EDF2");
     text("if you click, the game restarts!", windowWidth -120, 40);
