@@ -53,7 +53,7 @@ function preload() {
 function setup() {
 
   //Ux/Ui
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth -1, windowHeight -1);
   bgMusic.loop = true;
   bgMusic.play();
 

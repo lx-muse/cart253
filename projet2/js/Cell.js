@@ -147,44 +147,46 @@ class Cell {
         cell.health -= this.healthGainPerEat;
         // Check if the prey died and reset it if so
         if (cell.health < 0) {
-          this.radius++;
+          this.radius = this.radius + cell.radius;
         // prey.reset();
         }
       }
       else {
         //Decrease predator health
         this.health -= this.healthGainPerEat;
+        this.health = constrain(this.health, 0, this.maxHealth)
         cell.health = constrain(cell.health, 0, cell.maxHealth);
         //Increase prey health
         cell.health += this.healthGainPerEat;
         //check if the player died
-        if(this.health < 0)
-        this.radius = 0;
+        if(this.health <= 0) {
         // currentScene = gameOverScene;
       }
     }
   }
-
+}
   // display
   //
   // Draw the predator as an ellipse on the canvas
   // with a radius the same size as its current health.
   display() {
-    push();
-    noStroke();
-    image(this.avatar, this.x, this.y, this.radius, this.radius);
-    this.radius = this.health;
-    // ellipse(this.x, this.y, this.radius * 2);
-    pop();
+    if(this.health > 0) {
+      push();
+      noStroke();
+      image(this.avatar, this.x, this.y, this.radius, this.radius);
+      this.radius = this.health;
+      // ellipse(this.x, this.y, this.radius * 2);
+      pop();
+    }
   }
 
   reset() {
     // Random position
-    this.x = random(0, width);
-    this.y = random(0, height);
+    this.x = 100;
+    this.y = 100;
     // Default health
     this.health = this.maxHealth;
     // Default radius
     this.radius = this.health;
   }
-  }
+}

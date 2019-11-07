@@ -63,5 +63,7 @@ class PlayState extends Scene {
 
   mousePressed() {
     currentScene = titleScene;
+    player.reset();
+
   }
 }
