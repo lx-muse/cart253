@@ -11,6 +11,7 @@ class TitleState extends Scene {
     textSize(50);
     textAlign(CENTER,CENTER);
     noStroke();
+    //cloud blue
     fill("#D8EDF2");
     text("Osmosis Simulation", windowWidth / 2, windowHeight / 2 -20);
     textSize(30);

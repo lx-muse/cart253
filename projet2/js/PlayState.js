@@ -12,8 +12,9 @@ class PlayState extends Scene {
     textSize(15);
     textAlign(CENTER,LEFT);
     noStroke();
+    //cloud blue
     fill("#D8EDF2");
-    text("if you click, the game restarts!", windowWidth -200, 40);
+    text("Click to reset!", windowWidth -200, 40);
 
     //Here is where the game starts
     // Handle input for the player

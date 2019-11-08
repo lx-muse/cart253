@@ -10,6 +10,7 @@ class GameOverState extends Scene {
     textSize(50);
     textAlign(CENTER,CENTER);
     noStroke();
+    //cloud blue
     fill("#D8EDF2");
     text("GAME OVER!",windowWidth / 2, windowHeight / 2 - 20);
     textSize(30);

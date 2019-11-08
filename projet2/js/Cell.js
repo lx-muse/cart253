@@ -51,21 +51,17 @@ class Cell {
     // Horizontal movement
     if (keyIsDown(this.leftKey)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
-    }
-    else if (keyIsDown(this.downKey)) {
+    } else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
     //Added sprintKey input for player
@@ -82,7 +78,7 @@ class Cell {
   // Lowers health (as a cost of living)
   // Handles wrapping
   move() {
-    if(this.autopilot == false){
+    if (this.autopilot == false) {
       // Update position
       this.x += this.vx;
       this.y += this.vy;
@@ -91,8 +87,7 @@ class Cell {
       // this.health = constrain(this.health, 0, this.maxHealth);
       // Handle wrapping
       this.handleWrapping();
-    }
-    else {
+    } else {
       // Set velocity via noise()
       this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
       this.vy = map(noise(this.ty), 0, 1, -this.speed, this.speed);
@@ -115,15 +110,13 @@ class Cell {
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -138,7 +131,7 @@ class Cell {
     let d = dist(this.x, this.y, cell.x, cell.y);
     // Check if the distance is less than their two radii (an overlap)
     if (d < this.radius + cell.radius && cell.health > 0) {
-      if(this.radius > cell.radius){
+      if (this.radius > cell.radius) {
         // Increase predator health and constrain it to its possible range
         this.health += this.healthGainPerEat;
         this.health = constrain(this.health, 0, this.maxHealth);
@@ -148,10 +141,8 @@ class Cell {
         // Check if the prey died and reset it if so
         if (cell.health < 0) {
           this.radius = this.radius + cell.radius;
-        // prey.reset();
         }
-      }
-      else {
+      } else {
         //Decrease predator health
         this.health -= this.healthGainPerEat;
         this.health = constrain(this.health, 0, this.maxHealth)
@@ -159,18 +150,19 @@ class Cell {
         //Increase prey health
         cell.health += this.healthGainPerEat;
         //check if the player died
-        if(this.health <= 0) {
-        // currentScene = gameOverScene;
+        if (player.health <= 0) {
+          currentScene = gameOverScene;
+          console.log("eaten")
+        }
       }
     }
   }
-}
   // display
   //
   // Draw the predator as an ellipse on the canvas
   // with a radius the same size as its current health.
   display() {
-    if(this.health > 0) {
+    if (this.health > 0) {
       push();
       noStroke();
       image(this.avatar, this.x, this.y, this.radius, this.radius);

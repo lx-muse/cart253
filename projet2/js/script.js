@@ -10,7 +10,7 @@ let currentScene; // To store the current scene; thank you Pippin
 let titleScene;
 let instructionsScene;
 let playScene;
-// let gameOverScene;
+let gameOverScene;
 
 // Our predator
 let player;
@@ -42,7 +42,6 @@ function preload() {
   bgImage = loadImage("assets/images/bgImage.png");
   playerImage = loadImage("assets/images/cellPlayer2.png");
   preyImage = loadImage("assets/images/cellPrey.png");
-  console.log(playerImage);
 }
 
 // setup()
@@ -61,7 +60,7 @@ function setup() {
   titleScene = new TitleState();
   instructionsScene = new InstructionsState();
   playScene = new PlayState();
-  // gameOverScene = new GameOverSate();
+  gameOverScene = new GameOverState();
 
   currentScene = titleScene;
 
