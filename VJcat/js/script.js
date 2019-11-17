@@ -28,7 +28,7 @@ let bgImage;
 //
 // Prepare SFX and player/cat images
 function preload() {
-  bgImage = loadImage("assets/images/bgImage.png");
+  bgImage = loadImage("assets/images/bgImage.jpg");
 
 }
 
@@ -44,7 +44,7 @@ function setup() {
   titleScene = new TitleState();
   instructionsScene = new InstructionsState();
   playScene = new PlayState();
-  gameOverScene = new GameOverState();
+  // gameOverScene = new GameOverState();
 
   currentScene = titleScene;
 }

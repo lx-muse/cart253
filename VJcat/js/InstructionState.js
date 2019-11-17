@@ -19,7 +19,7 @@ class InstructionsState extends Scene {
     //Indigo monochromatic : #2e004f
     push();
     fill("#2E0854");
-    text("This is your console",windowWidth / 2, windowHeight / 2 - 20);
+    text("These are your controls",windowWidth / 2, windowHeight / 2 - 100);
     pop();
     push();
     fill("#2e004f");
