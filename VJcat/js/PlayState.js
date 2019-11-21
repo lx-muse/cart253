@@ -24,9 +24,11 @@ class PlayState extends Scene {
     text("Click and hold to make visuals!\n" +"to be continued...", width / 2, height / 4);
 
 
-    //game objects
+    //calling game objects methods
     keyboard.draw();
     keyboard.handleInput();
+
+    //calling visuals (to-do)
 
 
 

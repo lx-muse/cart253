@@ -13,9 +13,10 @@ class Keyboard {
 
 
   draw() {
+    //here in draw because we want it every frame
     imageMode(CORNER);
     image(this.keyboardImage, this.x, this.y, this.w, this.h);
-    //key codes on the right side
+    //key ctrl on the right side
     image(ctrlVertical,900,0,200,1100);
 
   }
