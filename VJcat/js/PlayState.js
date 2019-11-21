@@ -3,12 +3,16 @@ class PlayState extends Scene {
     super();
   }
 
+
   draw() {
+    //variables for mouse animation
     let fillColor = "#2e004f";
     let circleX = mouseX;
     let circleY = mouseY;
     let circleSize = random(100,150);
-    // Here we draw the game on the screen and insert librairies
+
+
+    // draw the game on the screen and insert stuff
     background(bgImage);
     console.log("Play");
     textFont();
@@ -17,8 +21,16 @@ class PlayState extends Scene {
     noStroke();
     //Indigo monochromatic : #2e004f
     fill("#2E0854");
-    text("Click and hold to make visuals!\n" +"to be continued...", windowWidth / 2, windowHeight / 4);
+    text("Click and hold to make visuals!\n" +"to be continued...", width / 2, height / 4);
 
+
+    //game objects
+    keyboard.draw();
+    keyboard.handleInput();
+
+
+
+    //variables for mouse animation
     if(mouseIsPressed){
       //lavender
       fill(179,102,255,random(0,100));
@@ -41,20 +53,20 @@ class PlayState extends Scene {
 
   }
 
-  mousePressed() {
-    //find another place to reset game (to-do)
-    // currentScene = titleScene;
-
-    // Handle visuals and librairies with new shape classes (to-do)
-    // brainstorm:
-    // pixelmatrix
-    // gradient
-    // lines
-    // mouseDragged
-    //
-
-
-
-
-  }
+  // mousePressed() {
+  //   //find another place to reset game (to-do)
+  //   // currentScene = titleScene;
+  //
+  //   // Handle visuals and librairies with new shape classes (to-do)
+  //   // brainstorm:
+  //   // pixelmatrix
+  //   // gradient
+  //   // lines
+  //   // mouseDragged
+  //   //
+  //
+  //
+  //
+  //
+  // }
 }
