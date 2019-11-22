@@ -19,13 +19,13 @@ class InstructionsState extends Scene {
     //Indigo monochromatic : #2e004f
     push();
     fill("#2E0854");
-    text("These are your controls",width / 2, height / 2 - 100);
+    text("These are your controls",windowWidth / 2, windowHeight / 2 - 100);
     pop();
     push();
     fill("#2e004f");
     textSize(30);
     //Tell the user what's up
-    text("Controls list\n" + "ctrl placeholder\n" + "ctrl placeholder\n" + "ctrl placeholder\n",width / 2, height / 2 + 60);
+    text("Controls list\n" + "ctrl placeholder\n" + "ctrl placeholder\n" + "ctrl placeholder\n",windowWidth / 2, windowHeight / 2 + 60);
     pop();
     //Start drawing the keyboard at the bottom left of the screen
 

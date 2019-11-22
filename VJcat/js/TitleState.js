@@ -13,9 +13,9 @@ class TitleState extends Scene {
     noStroke();
     //Indigo monochromatic : #2e004f
     fill("#2E0854");
-    text("VJcat beta", width / 2, height / 2 -20);
+    text("VJcat beta", windowWidth / 2, windowHeight / 2 -20);
     textSize(30);
-    text("Click for instructions", width / 2, height / 2 + 60);
+    text("Click for instructions", windowWidth / 2, windowHeight / 2 + 60);
 
 
   }
