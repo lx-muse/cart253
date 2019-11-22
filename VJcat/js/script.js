@@ -20,17 +20,12 @@ let playScene;
 let gameOverScene;
 
 //let variables for player, cat, keyboard (to-do)
-<<<<<<< Updated upstream
-=======
 let keyboard;
 let cat;
->>>>>>> Stashed changes
 
 //let variables for images and sounds (to-do)
 // Interface
 let bgImage;
-<<<<<<< Updated upstream
-=======
 let keyboardImage;
 let ctrlVertical;
 // Cat
@@ -38,20 +33,15 @@ let catImage;
 let catX = 940;
 let catY = 750;
 let catSpeed;
->>>>>>> Stashed changes
 
 // preload()
 //
 // Prepare SFX and player/cat images
 function preload() {
   bgImage = loadImage("assets/images/bgImage.jpg");
-<<<<<<< Updated upstream
-
-=======
   keyboardImage = loadImage("assets/images/keyboard.png");
   ctrlVertical = loadImage("assets/images/ctrlVertical.png");
   catImage = loadImage("assets/images/catAlpha.gif");
->>>>>>> Stashed changes
 }
 
 
@@ -60,7 +50,7 @@ function preload() {
 // create objects for player, cat, keyboard (to-do)
 // setup SFX / visuals (to-do)
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1100, 900);
 
   // Create the four scenes
   titleScene = new TitleState();
@@ -69,13 +59,10 @@ function setup() {
   // gameOverScene = new GameOverState();
 
   currentScene = titleScene;
-<<<<<<< Updated upstream
-=======
 
   //game objects
   keyboard = new Keyboard(0,600,900,300,keyboardImage);
   cat = new Cat(catX,catY,catSpeed,132,114,catImage)
->>>>>>> Stashed changes
 }
 
 

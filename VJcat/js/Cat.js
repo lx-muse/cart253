@@ -21,7 +21,7 @@ class Cat {
     //here in draw because we want it every frame
     image(this.catImage, this.x, this.y, this.w, this.h);
     catImage.play;
-    console.log("cat draw");
+    // console.log("cat draw");
   }
 
   move(){

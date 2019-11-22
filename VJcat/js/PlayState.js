@@ -8,12 +8,8 @@ class PlayState extends Scene {
     let circleX = mouseX;
     let circleY = mouseY;
     let circleSize = random(100,150);
-<<<<<<< Updated upstream
-    // Here we draw the game on the screen and insert librairies
-=======
 
     // draw the game on the screen and insert stuff
->>>>>>> Stashed changes
     background(bgImage);
     console.log("Play");
     textFont();
@@ -22,23 +18,17 @@ class PlayState extends Scene {
     noStroke();
     //Indigo monochromatic : #2e004f
     fill("#2E0854");
-<<<<<<< Updated upstream
-    text("Click and hold to make visuals!\n" +"to be continued...", windowWidth / 2, windowHeight / 4);
-=======
     text("Click and hold to make visuals!\n" +"to be continued...", width / 2, height / 4);
 
     //calling game objects
     keyboard.draw();
     // keyboard.handleInput();
 
-    console.log("cat playState");
     cat.display();
     // cat.move();
 
 
     //calling visuals (to-do)
-
->>>>>>> Stashed changes
 
     if(mouseIsPressed){
       //lavender
