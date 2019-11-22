@@ -8,11 +8,9 @@ Your goal is to achieve nice visuals while your pixelated cat familiar randomly 
 The only constant is change.
 
 bgImage from: https://www.deviantart.com/lukeedee/art/Andromeda-Mod-update-255618830
-cat gifs from: https://hoppip.tumblr.com/post/22123054028
-keyboard from vectorstock (free preview modified)
+cat gif from: https://hoppip.tumblr.com/post/22123054028
 
 ******************/
-
 
 // The game status
 let currentScene; // To store the current scene; thank you Pippin
@@ -21,22 +19,17 @@ let instructionsScene;
 let playScene;
 let gameOverScene;
 
-
 //let variables for player, cat, keyboard (to-do)
-let keyboard;
 
 //let variables for images and sounds (to-do)
 let bgImage;
-let keyboardImage;
-let ctrlVertical;
 
 // preload()
 //
 // Prepare SFX and player/cat images
 function preload() {
   bgImage = loadImage("assets/images/bgImage.jpg");
-  keyboardImage = loadImage("assets/images/keyboard.jpg");
-  ctrlVertical = loadImage("assets/images/ctrlVertical.png");
+
 }
 
 
@@ -45,7 +38,7 @@ function preload() {
 // create objects for player, cat, keyboard (to-do)
 // setup SFX / visuals (to-do)
 function setup() {
-  createCanvas(1100, 900);
+  createCanvas(windowWidth, windowHeight);
 
   // Create the four scenes
   titleScene = new TitleState();
@@ -54,9 +47,6 @@ function setup() {
   // gameOverScene = new GameOverState();
 
   currentScene = titleScene;
-
-  //game objects
-  keyboard = new Keyboard(0,600,900,300,keyboardImage);
 }
 
 
@@ -70,7 +60,6 @@ function draw() {
   // In draw we just tell the current scene to draw
   // and whichever scene it is will display as per its class
   currentScene.draw();
-
 
 }
 
