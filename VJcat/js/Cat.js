@@ -21,7 +21,6 @@ class Cat {
     //here in draw because we want it every frame
     image(this.catImage, this.x, this.y, this.w, this.h);
     catImage.play;
-    // console.log("cat draw");
   }
 
   move(){
@@ -36,6 +35,7 @@ class Cat {
     this.tx += 0.01;
     this.ty += 0.01;
     // Lock him to the keyboard
+
     this.handleBouncing();
 
   }
@@ -43,6 +43,11 @@ handleBouncing(){
   if (this.x < 0 || this.x > width) {
     // It hit so reverse velocity
     this.vx = -this.vx;
+  }
+
+  if (this.y < 600 || this.y > 900) {
+    // It hit so reverse velocity
+    this.vy = -this.vy;
   }
 
 }

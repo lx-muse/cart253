@@ -3,7 +3,7 @@
 VJ Cat
 by MC Lariviere
 
-This is a template for cart-253, final project.
+cart-253, final project.
 Your goal is to achieve nice visuals while your pixelated cat familiar randomly sleeps on your tools.
 The only constant is change.
 
@@ -32,7 +32,8 @@ let ctrlVertical;
 let catImage;
 let catX = 940;
 let catY = 750;
-let catSpeed;
+let catSpeed = 3;
+
 
 // preload()
 //
@@ -62,7 +63,8 @@ function setup() {
 
   //game objects
   keyboard = new Keyboard(0,600,900,300,keyboardImage);
-  cat = new Cat(catX,catY,catSpeed,132,114,catImage)
+  cat = new Cat(catX,catY,catSpeed,132,114,catImage);
+
 }
 
 
@@ -85,4 +87,9 @@ function mousePressed() {
   // In mousePressed we call the mousePressed of the current scene
   // so it knows the mouse was pressed
   currentScene.mousePressed();
+}
+
+function keyPressed(){
+  currentScene.keyPressed();
+
 }

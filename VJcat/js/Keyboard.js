@@ -5,19 +5,35 @@ class Keyboard {
     this.w = w;
     this.h = h;
     this.keyboardImage = keyboardImage;
+      //let variables for keys
+    this.d = false;
+
   }
 
   draw() {
+
     //here in draw because we want it every frame
     imageMode(CORNER);
     image(this.keyboardImage, this.x, this.y, this.w, this.h);
-    //key ctrl on the right side
+    //key list on the right side
     image(ctrlVertical,900,0,200,1100);
 
+
+    // key toggle feedback
+    let squareD = new Square(270,749,50,50);
+    if(this.d === true){
+      console.log("d");
+      squareD.display();
+      // add visual.display
+    }
   }
 
-  handleInput(){
+  //here we check which key is pressed
+  keyPressed(){
 
+    if(keyCode === 68) {
+      this.d = !this.d;
+    }
 
 
   }

@@ -1,17 +1,18 @@
 class PlayState extends Scene {
   constructor() {
     super();
+    //let variables for keys
+    let squareD = new Square(270,749,25,25);
   }
 
   draw() {
-    let fillColor = "#2e004f";
-    let circleX = mouseX;
-    let circleY = mouseY;
-    let circleSize = random(100,150);
+    console.log(mouseX,mouseY);
+
+    //let variables for shapes
+    let circle1 = new Circle (mouseX,mouseY,random(50,100), "#2e004f");
 
     // draw the game on the screen and insert stuff
     background(bgImage);
-    console.log("Play");
     textFont();
     textSize(15);
     textAlign(CENTER,CENTER);
@@ -22,35 +23,27 @@ class PlayState extends Scene {
 
     //calling game objects
     keyboard.draw();
-    // keyboard.handleInput();
 
     cat.display();
-    // cat.move();
+    cat.move();
+    cat.handleBouncing();
 
 
     //calling visuals (to-do)
 
     if(mouseIsPressed){
       //lavender
-      fill(179,102,255,random(0,100));
-      ellipse(mouseX,mouseY,circleSize, circleSize);
-      circleSize+=random(0,100);
+      circle1.update();
+      circle1.display();
 
     }
-
-
-    //Here is where the game starts (to-do)
-    // Handle input for the player
-    // player.handleInput();
-
-    // Move the player + add cat
-    // player.move();
-
-
-    // Display the player + add cat
-    // player.display();
-
   }
+
+
+  keyPressed(){
+    keyboard.keyPressed();
+  }
+
 
   mousePressed() {
     //find another place to reset game (to-do)
@@ -62,10 +55,5 @@ class PlayState extends Scene {
     // gradient
     // lines
     // mouseDragged
-    //
-
-
-
-
   }
 }
