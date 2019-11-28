@@ -141,6 +141,7 @@ class Cell {
         // Check if the prey died and reset it if so
         if (cell.health < 0) {
           this.radius = this.radius + cell.radius;
+          // player.radius++;
         }
       } else {
         //Decrease predator health
