@@ -15,16 +15,21 @@ class Cat {
     this.w = w;
     this.h = h;
     this.catImage = catImage;
+    this.catImage2 = catImage2;
   }
 
   display() {
-    //here in draw because we want it every frame
-    image(this.catImage, this.x, this.y, this.w, this.h);
-    catImage.play;
+    //here in draw because we want it every frame + calling letter G 
+    if(keyCode !== 71) {
+      image(this.catImage, this.x, this.y, this.w, this.h);
+      catImage.play;
+    }else{
+      image(this.catImage2, this.x, this.y, this.w, this.h);
+      catImage2.play;
+    }
   }
 
   move(){
-    console.log("cat move");
     // Set velocity via noise()
     this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
     this.vy = map(noise(this.ty), 0, 1, -this.speed, this.speed);
@@ -35,7 +40,6 @@ class Cat {
     this.tx += 0.01;
     this.ty += 0.01;
     // Lock him to the keyboard
-
     this.handleBouncing();
 
   }
