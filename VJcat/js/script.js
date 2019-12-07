@@ -43,6 +43,7 @@ function preload() {
   keyboardImage = loadImage("assets/images/keyboard.png");
   ctrlVertical = loadImage("assets/images/ctrlVertical.png");
   catImage = loadImage("assets/images/catAlpha.gif");
+  catImage2 = loadImage("assets/images/catBW.gif");
 }
 
 
