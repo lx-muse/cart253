@@ -25,7 +25,7 @@ class InstructionsState extends Scene {
     fill("#2e004f");
     textSize(30);
     //Tell the user what's up
-    text("Controls list\n" + "ctrl placeholder\n" + "ctrl placeholder\n" + "ctrl placeholder\n",width / 2, height / 2 + 60);
+    text("Controls list\n" + "D\n" + "G\n" + "ctrl placeholder\n",width / 2, height / 2 + 60);
     pop();
     //Start drawing the keyboard at the bottom left of the screen
 
