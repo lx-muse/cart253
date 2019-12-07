@@ -3,6 +3,7 @@ class PlayState extends Scene {
     super();
     //let variables for keys
     let squareD = new Square(270,749,25,25);
+    let squareG = new Square(390,749,50,50);
   }
 
   draw() {
@@ -10,8 +11,9 @@ class PlayState extends Scene {
 
     //let variables for shapes
     let circle1 = new Circle (mouseX,mouseY,random(50,100), "#2e004f");
+    let circle2 = new Circle (random(600),random(900),20, "#2e004f");
 
-    // draw the game on the screen and insert stuff
+    // draw the game on the screen
     background(bgImage);
     textFont();
     textSize(15);
@@ -21,7 +23,7 @@ class PlayState extends Scene {
     fill("#2E0854");
     text("Click and hold to make visuals!\n" +"to be continued...", width / 2, height / 4);
 
-    //calling game objects
+    //calling game objects functions
     keyboard.draw();
 
     cat.display();
@@ -29,8 +31,12 @@ class PlayState extends Scene {
     cat.handleBouncing();
 
 
-    //calling visuals (to-do)
-
+    //calling visuals for letter D
+    if(keyCode === 68) {
+      circle2.update();
+      circle2.display();
+    }
+    //calling visuals for letter mouse click
     if(mouseIsPressed){
       //lavender
       circle1.update();
