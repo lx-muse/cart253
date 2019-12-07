@@ -5,13 +5,12 @@ class Shape {
     this.size = size;
   }
   update() {
-    this.x += random(-1,1);
-    this.y += random(-1,1);
+    this.x += random(-0.1,0.1);
+    this.y += random(-0.1,0.1);
   }
   display() {
     // A generic shape cannot be displayed
     // Must add display() in every children
-    // But it makes sense to tell anyone extending this class to include one!
-    console.log("Error! Generic shape cannt be display!")
+    console.log("Error! Generic shape cant be display!")
   }
 }
