@@ -2,7 +2,7 @@ class Square extends Shape {
   constructor(x,y,size) {
     super(x,y,size);
   }
-  // Display a square a big as keyboar keys (for feedback)
+  // Display a square a big as keyboard keys (for feedback)
   display() {
     push();
     rectMode(CENTER);
