@@ -30,10 +30,14 @@ let keyboardImage;
 let ctrlVertical;
 // Cat
 let catImage;
+//Ghost flip
+let catImage2;
 let catX = 940;
 let catY = 750;
 let catSpeed = 3;
 
+//let variables for sounds
+let purr;
 
 // preload()
 //
@@ -44,6 +48,7 @@ function preload() {
   ctrlVertical = loadImage("assets/images/ctrlVertical.png");
   catImage = loadImage("assets/images/catAlpha.gif");
   catImage2 = loadImage("assets/images/catBW.gif");
+  purr = loadSound("assets/sounds/purr.wav");
 }
 
 
@@ -53,44 +58,34 @@ function preload() {
 // setup SFX / visuals (to-do)
 function setup() {
   createCanvas(1100, 900);
+  // Set background
+  background(bgImage);
 
   // Create the four scenes
   titleScene = new TitleState();
   instructionsScene = new InstructionsState();
   playScene = new PlayState();
   // gameOverScene = new GameOverState();
-
   currentScene = titleScene;
 
   //game objects
   keyboard = new Keyboard(0,600,900,300,keyboardImage);
   cat = new Cat(catX,catY,catSpeed,132,114,catImage);
-
 }
-
 
 // draw()
 //
 // Handles input, movement and displaying for the system's objects (to-do)
 function draw() {
-  // Set background
-  background(bgImage);
-
   // In draw we just tell the current scene to draw
   // and whichever scene it is will display as per its class
   currentScene.draw();
-
 }
-
-
-// MUST ADAPT INPUTS FOR A BETTER GAMEPLAY :  switch to another key? lock the mouse in playState?
 function mousePressed() {
   // In mousePressed we call the mousePressed of the current scene
-  // so it knows the mouse was pressed
   currentScene.mousePressed();
 }
-
+  // same for keyPressed
 function keyPressed(){
   currentScene.keyPressed();
-
 }

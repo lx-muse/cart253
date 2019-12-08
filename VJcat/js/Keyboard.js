@@ -8,6 +8,7 @@ class Keyboard {
       //let variables for keys
     this.d = false;
     this.g = false;
+    this.p = false;
 
   }
 
@@ -17,7 +18,6 @@ class Keyboard {
     image(this.keyboardImage, this.x, this.y, this.w, this.h);
     //key list on the right side
     image(ctrlVertical,900,0,200,1100);
-
 
     // key toggle feedbacks
     let squareD = new Square(270,749,50,50);
@@ -29,8 +29,14 @@ class Keyboard {
     if(this.g === true){
       squareG.display();
     }
-
-
+    let squareP = new Square(679,690,50,50);
+    if(this.p === true){
+      squareP.display();
+    }
+    let squareS = new Square(209,749,50,50);
+    if(this.s === true){
+      squareS.display();
+    }
 
   }
 
@@ -43,8 +49,12 @@ class Keyboard {
     if(keyCode === 71) {
       this.g = !this.g;
     }
-
-
+    if(keyCode === 80) {
+      this.p = !this.p;
+    }
+    if(keyCode === 83) {
+      this.s = !this.s;
+    }
 
   }
 

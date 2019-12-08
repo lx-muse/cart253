@@ -21,7 +21,7 @@ class PlayState extends Scene {
     noStroke();
     //Indigo monochromatic : #2e004f
     fill("#2E0854");
-    text("Click and hold to make visuals!\n" +"to be continued...", width / 2, height / 4);
+    text("Make visuals!\n", width / 2, height / 4);
 
     //calling game objects functions
     keyboard.draw();
@@ -29,20 +29,32 @@ class PlayState extends Scene {
     cat.display();
     cat.move();
     cat.handleBouncing();
+    // cat.handleKey();
 
 
-    //calling visuals for letter D
+    //calling visuals for letter D, a buch of little ellipses
     if(keyCode === 68) {
       circle2.update();
       circle2.display();
     }
+
+    // P code
+    if(keyCode === 80){
+      purr.setVolume(1,5000,0);
+      purr.play();
+    }
+    //S code
+    if(keyCode === 83){
+      purr.stop();
+    }
+
     //calling visuals for letter mouse click
     if(mouseIsPressed){
       //lavender
       circle1.update();
       circle1.display();
-
     }
+
   }
 
 
