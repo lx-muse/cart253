@@ -1,14 +1,22 @@
 class InstructionsState extends Scene {
   constructor() {
     super();
+
+  }
+  //Added a setup() to draw the background only once
+  setup(){
+    background(bgImage);
   }
 
   draw() {
-    background(bgImage);
     //Ambiant background
-      let matrix = new Matrix (width/2, 0, 10);
-    matrix.display();
-    matrix.fall();
+    matrix = new Matrix (width/2, 0, 1);
+    
+    for ( let i = 0; i < matrix.length ; i++){
+      matrix[i].display();
+      matrix[i].fall();
+    }
+
 
 
     // Here we draw the instructions on the screen
@@ -26,7 +34,7 @@ class InstructionsState extends Scene {
     fill("#2e004f");
     textSize(30);
     //Tell the user what's up
-    text("Controls list\n" + "D\n" + "G\n",width / 2, height / 2 + 60);
+    text("Play with keyboard\n" + "D\n" + "G\n",width / 2, height / 2 + 60);
     pop();
     //Start drawing the keyboard at the bottom left of the screen
 

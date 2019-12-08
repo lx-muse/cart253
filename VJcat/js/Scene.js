@@ -2,6 +2,9 @@ class Scene {
   constructor() {
 
   }
+  setup(){
+    
+  }
 
   draw() {
     // This should be defined in child classes for their draw

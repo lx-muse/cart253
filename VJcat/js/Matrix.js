@@ -1,20 +1,20 @@
+//adapted from purple rain challenge from The Coding Train https://youtu.be/KkyIDI6rQJI
 class Matrix {
   //rain drops
-  constructor(x, y, speed) {
-    this.x = x;
-    this.y = y;
-    this.speed = 10;
+  constructor(rainX, rainY, rainSpeed) {
+    this.rainX = random(0,1100);
+    this.rainY = random(100,200);
+    this.rainSpeed = 0.00001;
   }
+
   fall() {
-    console.log("matrix update");
-    this.y === this.y + this.speed;
+    this.rainY += this.rainY + this.rainSpeed;
+      console.log("matrix fall")
   }
   display() {
-    //purple rose
+    //purple rose. 20px long
     stroke("#5E2D79");
-    line(this.x, this.y, this.x, this.y+10);
+    line(this.rainX, this.rainY, this.rainX, this.rainY +20);
+    console.log("matrix display")
   }
 }
-
-
-//adapted from urple rain challenge from The Coding Train https://youtu.be/KkyIDI6rQJI

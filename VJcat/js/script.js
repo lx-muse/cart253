@@ -39,6 +39,13 @@ let catSpeed = 3;
 //let variables for sounds
 let purr;
 
+//let variable for Matrix effect
+let numRain = 1000;
+let matrix = [];
+let rainX ;
+let rainY ;
+let rainSpeed ;
+
 // preload()
 //
 // Prepare SFX and player/cat images
@@ -51,15 +58,19 @@ function preload() {
   purr = loadSound("assets/sounds/purr.wav");
 }
 
-
 // setup()
-// track game status
-// create objects for player, cat, keyboard (to-do)
+// track game status + create objects for cat, keyboard and visuals
 // setup SFX / visuals (to-do)
 function setup() {
   createCanvas(1100, 900);
   // Set background
   background(bgImage);
+
+  for( let i = 0; i < numRain; i++) {
+    let newMatrix = new Matrix (rainX, rainY, rainSpeed);
+    matrix.push(newMatrix);
+  }
+
 
   // Create the four scenes
   titleScene = new TitleState();
@@ -71,6 +82,8 @@ function setup() {
   //game objects
   keyboard = new Keyboard(0,600,900,300,keyboardImage);
   cat = new Cat(catX,catY,catSpeed,132,114,catImage);
+  //and visual class
+
 }
 
 // draw()
@@ -79,6 +92,7 @@ function setup() {
 function draw() {
   // In draw we just tell the current scene to draw
   // and whichever scene it is will display as per its class
+  currentScene.setup();
   currentScene.draw();
 }
 function mousePressed() {
