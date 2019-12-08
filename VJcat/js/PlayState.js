@@ -40,7 +40,7 @@ class PlayState extends Scene {
 
     // P code
     if(keyCode === 80){
-      purr.setVolume(1,5000,0);
+      purr.setVolume(0.5);
       purr.play();
     }
     //S code
@@ -64,7 +64,7 @@ class PlayState extends Scene {
 
 
   mousePressed() {
-    //find another place to reset game (to-do)
+    // to be continued
     // currentScene = titleScene;
 
     // Handle visuals and librairies with new shape classes (to-do)

@@ -1,3 +1,4 @@
+//This is where we give the cat it's properties and actions
 class Cat {
 
   constructor(x,y,speed,w,h, keyboardImage) {
@@ -19,7 +20,7 @@ class Cat {
   }
 
   display() {
-    //here in draw because we want it every frame + calling letter G 
+    //here in draw because we want it every frame + calling letter G
     if(keyCode !== 71) {
       image(this.catImage, this.x, this.y, this.w, this.h);
       catImage.play;
@@ -43,18 +44,30 @@ class Cat {
     this.handleBouncing();
 
   }
-handleBouncing(){
-  if (this.x < 0 || this.x > width) {
-    // It hit so reverse velocity
-    this.vx = -this.vx;
+  
+  handleBouncing(){
+    if ((this.x < 0) || (this.x > width)) {
+      // It hit so reverse velocity
+      this.vx = -this.vx;
+    }
+
+    if ((this.y < 600) || (this.y > 900)) {
+      // It hit so reverse velocity
+      this.vy = -this.vy;
+    }
+
   }
 
-  if (this.y < 600 || this.y > 900) {
-    // It hit so reverse velocity
-    this.vy = -this.vy;
-  }
+  // handleKey(square) {
+  //   // Calculate distance from this "predator to the prey"
+  //   let d = dist(this.x, this.y, square.size, square.size);
+  //   // Check if the distance is less than their two radii (an overlap)
+  //   if (d < this.w + square.size) {
+  //     // trigger the key
+  //     square.display === true;
+  //   }
+  // }
 
-}
 
 
 }

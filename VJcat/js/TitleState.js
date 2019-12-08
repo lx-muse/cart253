@@ -6,7 +6,6 @@ class TitleState extends Scene {
   draw() {
     background(bgImage);
     // Here we draw the title on the screen
-    console.log("Title");
     textFont();
     textSize(50);
     textAlign(CENTER,CENTER);
@@ -16,8 +15,6 @@ class TitleState extends Scene {
     text("VJcat beta", width / 2, height / 2 -20);
     textSize(30);
     text("Click for instructions", width / 2, height / 2 + 60);
-
-
   }
 
   mousePressed() {

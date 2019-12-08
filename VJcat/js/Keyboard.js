@@ -1,3 +1,5 @@
+//This is where we give the keyboard it's properties and conditions
+
 class Keyboard {
   constructor(x,y,w,h, keyboardImage) {
     this.x = x;
@@ -29,6 +31,7 @@ class Keyboard {
     if(this.g === true){
       squareG.display();
     }
+    // P/S controls Play/Stop
     let squareP = new Square(679,690,50,50);
     if(this.p === true){
       squareP.display();
