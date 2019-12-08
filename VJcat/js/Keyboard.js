@@ -19,7 +19,7 @@ class Keyboard {
     image(ctrlVertical,900,0,200,1100);
 
 
-    // key toggle feedback
+    // key toggle feedbacks
     let squareD = new Square(270,749,50,50);
     if(this.d === true){
       squareD.display();
