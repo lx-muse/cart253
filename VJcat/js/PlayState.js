@@ -1,10 +1,12 @@
 class PlayState extends Scene {
   constructor() {
     super();
+
   }
 
   draw() {
     console.log(mouseX,mouseY);
+
 
     //let variables for shapes
     let circle1 = new Circle (mouseX,mouseY,random(50,100), "#2e004f");
@@ -33,9 +35,29 @@ class PlayState extends Scene {
       circle2.update();
       circle2.display();
     }
-    //D code
+    //D code draws a tree
     if(keyCode === 68) {
+      strokeWeight(3);
+      stroke("#28098d ");
+      //root of tree
+      translate(450,600);
+      branch(200);
 
+      //a fucntion for the tree key
+      function branch(len){
+        line(0, 0, 0, 0 - len);
+        translate(0,-len);
+        if (len > 4) {
+          push();
+          rotate(PI/3);
+          branch(len*0.67);
+          pop();
+          push();
+          rotate(-PI/3);
+          branch(len*0.67);
+          pop();
+        }
+      }
     }
     // P code
     if(keyCode === 80){

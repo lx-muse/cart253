@@ -90,6 +90,8 @@ function setup() {
     let drops = new Matrix (rainX, rainY, rainSpeed);
     rain.push(drops);
   }
+    //angle for the tree
+    let angle = PI / 4;
 }
 
 // draw()
