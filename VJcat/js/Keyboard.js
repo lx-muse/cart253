@@ -7,7 +7,8 @@ class Keyboard {
     this.w = w;
     this.h = h;
     this.keyboardImage = keyboardImage;
-      //let variables for keys
+    //let variables for keys
+    this.b = false;
     this.d = false;
     this.g = false;
     this.p = false;
@@ -27,6 +28,12 @@ class Keyboard {
     pop();
 
     // key toggle feedbacks
+    // B calls balls
+    let squareB = new Square(360,805,50,50);
+    if(this.b === true){
+      squareB.display();
+    }
+    //D draws a tree
     let squareD = new Square(270,749,50,50);
     if(this.d === true){
       squareD.display();
@@ -55,7 +62,9 @@ class Keyboard {
 
   //here we check which key is pressed
   keyPressed(){
-
+    if(keyCode === 66) {
+      this.b = !this.b;
+    }
     if(keyCode === 68) {
       this.d = !this.d;
     }

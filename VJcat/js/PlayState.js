@@ -28,12 +28,15 @@ class PlayState extends Scene {
     cat.handleBouncing();
     // cat.handleKey();
 
-    //calling visuals for letter D, a buch of little ellipses
-    if(keyCode === 68) {
+    //calling visuals for letter B, a buch of little balls
+    if(keyCode === 66) {
       circle2.update();
       circle2.display();
     }
+    //D code
+    if(keyCode === 68) {
 
+    }
     // P code
     if(keyCode === 80){
       purr.setVolume(1);
@@ -43,6 +46,7 @@ class PlayState extends Scene {
     if(keyCode === 83){
       purr.stop();
     }
+    //R code
     if(keyCode === 82){
       for ( let i = 0; i < numDrops ; i++){
         rain[i].display();
