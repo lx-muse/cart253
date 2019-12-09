@@ -9,6 +9,7 @@ The only constant is change.
 
 bgImage from: https://www.deviantart.com/lukeedee/art/Andromeda-Mod-update-255618830
 cat gif from: https://hoppip.tumblr.com/post/22123054028
+background music by Musway Studio; https://www.royaltyfree-music.com/ambient-music
 
 ******************/
 
@@ -32,12 +33,13 @@ let ctrlVertical;
 let catImage;
 //Ghost flip
 let catImage2;
-let catX = 940;
-let catY = 750;
+let catX = 900;
+let catY = 700;
 let catSpeed = 3;
 
 //let variables for sounds
 let purr;
+let bgMusic;
 
 //let variable for Matrix effect
 let numRain = 1000;
@@ -56,6 +58,7 @@ function preload() {
   catImage = loadImage("assets/images/catAlpha.gif");
   catImage2 = loadImage("assets/images/catBW.gif");
   purr = loadSound("assets/sounds/purr.wav");
+  bgMusic = loadSound("assets/sounds/magicalGravitation.mp3");
 }
 
 // setup()
@@ -65,6 +68,11 @@ function setup() {
   createCanvas(1100, 900);
   // Set background
   background(bgImage);
+  //Set Music
+  bgMusic.setVolume(1, 5000, 1);
+  bgMusic.play();
+  bgMusic.loop();
+
 
   for( let i = 0; i < numRain; i++) {
     let newMatrix = new Matrix (rainX, rainY, rainSpeed);

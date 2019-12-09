@@ -31,7 +31,6 @@ class PlayState extends Scene {
     cat.handleBouncing();
     // cat.handleKey();
 
-
     //calling visuals for letter D, a buch of little ellipses
     if(keyCode === 68) {
       circle2.update();
@@ -40,7 +39,7 @@ class PlayState extends Scene {
 
     // P code
     if(keyCode === 80){
-      purr.setVolume(0.5);
+      purr.setVolume(1);
       purr.play();
     }
     //S code
