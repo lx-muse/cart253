@@ -33,8 +33,8 @@ let ctrlVertical;
 let catImage;
 //Ghost flip
 let catImage2;
-let catX = 900;
-let catY = 700;
+let catX = 800;
+let catY = 600;
 let catSpeed = 3;
 
 //let variables for sounds and visual background

@@ -44,9 +44,9 @@ class Cat {
     this.handleBouncing();
 
   }
-  
+
   handleBouncing(){
-    if ((this.x < 0) || (this.x > width)) {
+    if ((this.x < 0) || (this.x > 1100)) {
       // It hit so reverse velocity
       this.vx = -this.vx;
     }

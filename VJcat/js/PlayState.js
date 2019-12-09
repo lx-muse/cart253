@@ -18,7 +18,7 @@ class PlayState extends Scene {
     noStroke();
     //Indigo monochromatic : #2e004f
     fill("#2E0854");
-    text("Make visuals!\n", width / 2, height / 4);
+    // text("Make visuals!\n", width / 2, height / 4);
 
     //calling game objects functions
     keyboard.draw();

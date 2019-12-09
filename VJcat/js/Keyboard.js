@@ -18,9 +18,13 @@ class Keyboard {
   draw() {
     //here in draw because we want it every frame
     imageMode(CORNER);
+    tint(255,172)
     image(this.keyboardImage, this.x, this.y, this.w, this.h);
-    //key list on the right side
+    //key list on the right side with transparency
+    push();
+    tint(255, 136);
     image(ctrlVertical,900,0,200,1100);
+    pop();
 
     // key toggle feedbacks
     let squareD = new Square(270,749,50,50);
