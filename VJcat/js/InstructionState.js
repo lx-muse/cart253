@@ -1,21 +1,22 @@
 class InstructionsState extends Scene {
   constructor() {
     super();
-
+    let matrix = new Matrix (width/2, 0, 1);
   }
   //Added a setup() to draw the background only once
   setup(){
     background(bgImage);
+
   }
 
   draw() {
     //Ambiant background
-    matrix = new Matrix (width/2, 0, 1);
-
-      // This part doesn't display
-    for ( let i = 0; i < matrix.length ; i++){
-      matrix[i].display();
-      matrix[i].fall();
+    matrix.display();
+    matrix.fall();
+      // This part displays the rain effect
+    for ( let i = 0; i < numDrops ; i++){
+      rain[i].display();
+      rain[i].fall();
     }
 
     // Here we draw the instructions on the screen

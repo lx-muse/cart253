@@ -11,6 +11,7 @@ class Keyboard {
     this.d = false;
     this.g = false;
     this.p = false;
+    this.r = false;
 
   }
 
@@ -40,6 +41,11 @@ class Keyboard {
     if(this.s === true){
       squareS.display();
     }
+    //R controls Rain
+    let squareR = new Square(313,690,50,50);
+    if(this.r === true){
+      squareR.display();
+    }
 
   }
 
@@ -57,6 +63,9 @@ class Keyboard {
     }
     if(keyCode === 83) {
       this.s = !this.s;
+    }
+    if(keyCode === 82) {
+      this.r = !this.r;
     }
 
   }

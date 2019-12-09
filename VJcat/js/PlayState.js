@@ -1,9 +1,6 @@
 class PlayState extends Scene {
   constructor() {
     super();
-    //let variables for keys
-    let squareD = new Square(270,749,25,25);
-    let squareG = new Square(390,749,50,50);
   }
 
   draw() {
@@ -45,6 +42,12 @@ class PlayState extends Scene {
     //S code
     if(keyCode === 83){
       purr.stop();
+    }
+    if(keyCode === 82){
+      for ( let i = 0; i < numDrops ; i++){
+        rain[i].display();
+        rain[i].fall();
+      }
     }
 
     //calling visuals for letter mouse click

@@ -37,16 +37,13 @@ let catX = 900;
 let catY = 700;
 let catSpeed = 3;
 
-//let variables for sounds
+//let variables for sounds and visual background
 let purr;
 let bgMusic;
+let matrix;
+let numDrops = 1000;
+let rain = [];
 
-//let variable for Matrix effect
-let numRain = 1000;
-let matrix = [];
-let rainX ;
-let rainY ;
-let rainSpeed ;
 
 // preload()
 //
@@ -73,13 +70,6 @@ function setup() {
   bgMusic.play();
   bgMusic.loop();
 
-
-  for( let i = 0; i < numRain; i++) {
-    let newMatrix = new Matrix (rainX, rainY, rainSpeed);
-    matrix.push(newMatrix);
-  }
-
-
   // Create the four scenes
   titleScene = new TitleState();
   instructionsScene = new InstructionsState();
@@ -91,7 +81,15 @@ function setup() {
   keyboard = new Keyboard(0,600,900,300,keyboardImage);
   cat = new Cat(catX,catY,catSpeed,132,114,catImage);
   //and visual class
-
+  matrix = new Matrix (width/2,0,1);
+  //let variable for Matrix effect
+  for( let i = 0; i < numDrops; i++) {
+    let rainX;
+    let rainY;
+    let rainSpeed;
+    let drops = new Matrix (rainX, rainY, rainSpeed);
+    rain.push(drops);
+  }
 }
 
 // draw()
